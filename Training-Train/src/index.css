@@ -1,1 +1,8 @@
 @import "tailwindcss";
+.active{
+    color: skyblue;
+    background-color: grey;
+    border: 1px solid rgb(134, 84, 84);
+    padding: 5px;
+
+}

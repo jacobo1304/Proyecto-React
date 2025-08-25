@@ -6,7 +6,7 @@ import LoadingScreen from './assets/Pages/loadingScreen.jsx'
 import Correcto from './assets/Pages/Correcto.jsx'
 import Confirmacion from './assets/Pages/Confirmacion.jsx'
 function App() {
-  return <Confirmacion />
+  return <LoadingScreen />
 }
 
 export default App
