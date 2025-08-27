@@ -1,6 +1,8 @@
 import FooterNav from '../../components/FooterNav'
+import { useNavigate } from 'react-router-dom'
 
 export default function Inicio() {
+  const navigate = useNavigate()
   const cursos = [
     { id: 1, titulo: 'Riesgos del trabajo', img: '/images/Riesgos%20del%20trabajo.jpg' },
     { id: 2, titulo: 'Seguridad de la Información', img: '/images/SeguridadInformacion.jpg' },
@@ -49,9 +51,13 @@ export default function Inicio() {
             {cursos.map((c) => (
               <article key={c.id} className="">
                 <h3 className="mb-3 text-center text-xl font-semibold text-zinc-200">{c.titulo}</h3>
-                <div className="h-36 w-full overflow-hidden rounded-md border border-zinc-600 bg-zinc-800">
+                <button
+                  type="button"
+                  onClick={() => navigate('/actividades')}
+                  className="h-36 w-full overflow-hidden rounded-md border border-zinc-600 bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                >
                   <img src={c.img} alt={c.titulo} className="h-full w-full object-cover" loading="lazy" />
-                </div>
+                </button>
               </article>
             ))}
           </div>

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function LoadingScreen() {
   const [progress, setProgress] = useState(0)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -9,6 +11,13 @@ export default function LoadingScreen() {
     }, 150)
     return () => clearInterval(id)
   }, [])
+
+  useEffect(() => {
+    if (progress >= 100) {
+      const t = setTimeout(() => navigate('/inicio'), 400)
+      return () => clearTimeout(t)
+    }
+  }, [progress, navigate])
 
   return (
     <main className="min-h-dvh bg-zinc-900 text-zinc-100 flex items-center justify-center">

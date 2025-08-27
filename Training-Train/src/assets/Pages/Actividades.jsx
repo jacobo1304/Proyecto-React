@@ -1,6 +1,8 @@
 import FooterNav from '../../components/FooterNav'
+import { useNavigate } from 'react-router-dom'
 
 export default function Actividades() {
+  const navigate = useNavigate()
   const actividades = [
     {
       id: 'correos',
@@ -64,15 +66,19 @@ export default function Actividades() {
 
                   {/* Cuerpo: imagen + acciones laterales */}
                   <div className="grid grid-cols-[1fr_auto] items-stretch gap-3">
-                    <div className="overflow-hidden rounded-md border border-zinc-600 bg-zinc-800">
+                    <button
+                      type="button"
+                      onClick={() => navigate(`/actividad/${a.id}`)}
+                      className="overflow-hidden rounded-md border border-zinc-600 bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                    >
                       <img src={a.img} alt={a.titulo} className="h-36 w-full object-cover" loading="lazy" />
-                    </div>
+                    </button>
                     <div className="flex w-10 flex-col items-center justify-between py-1">
                       <button
                         type="button"
                         aria-label={`Iniciar ${a.titulo}`}
                         className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800 text-zinc-100 shadow hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
-                        onClick={() => console.log('Iniciar', a.id)}
+                        onClick={() => navigate(`/actividad/${a.id}`)}
                       >
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                           <path d="M8 5v14l11-7z" />
@@ -82,7 +88,7 @@ export default function Actividades() {
                         type="button"
                         aria-label={`Información de ${a.titulo}`}
                         className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800 text-zinc-100 shadow hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
-                        onClick={() => console.log('Info', a.id)}
+                        onClick={() => navigate(`/info-actividad/${a.id}`)}
                       >
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
                           <circle cx="12" cy="12" r="10" />
@@ -102,7 +108,7 @@ export default function Actividades() {
               <button
                 type="button"
                 className="rounded-xl bg-sky-700 px-6 py-3 text-white shadow hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400"
-                onClick={() => console.log('Ver progreso')}
+                onClick={() => navigate('/progreso')}
               >
                 Ver progreso
               </button>

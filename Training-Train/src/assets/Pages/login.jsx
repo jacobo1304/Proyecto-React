@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
   const [company, setCompany] = useState('')
+  const navigate = useNavigate()
 
   return (
     <main className="min-h-screen bg-zinc-900 text-zinc-100">
@@ -13,7 +15,7 @@ export default function Login() {
 
         {/* Imagen del tren */}
         <img
-          src="../images/Training Train Proyecto DCU. (3).png"
+          src="/images/Training Train Proyecto DCU. (3).png"
           alt="Tren amarillo"
           onError={(e) => {
             e.currentTarget.onerror = null
@@ -58,10 +60,7 @@ export default function Login() {
           type="button"
           disabled={!company}
           className="mt-2 rounded-2xl bg-sky-600 px-8 py-4 text-2xl font-medium text-white shadow-md shadow-sky-900/40 transition-colors hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400 disabled:cursor-not-allowed disabled:opacity-50"
-          onClick={() => {
-            // TODO: navegación o acción al confirmar
-            console.log('Empresa seleccionada:', company)
-          }}
+          onClick={() => navigate('/loading')}
         >
           Comencemos
         </button>
