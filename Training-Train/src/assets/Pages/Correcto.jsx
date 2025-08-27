@@ -1,8 +1,10 @@
 import FooterNav from '../../components/FooterNav'
+import { useNavigate } from 'react-router-dom'
 
 export default function Correcto() {
   const score = 86
   const reward = 8
+  const navigate = useNavigate()
 
   return (
     <main className="relative min-h-dvh bg-zinc-900 text-zinc-100 pb-28">
@@ -50,7 +52,11 @@ export default function Correcto() {
           <button
             type="button"
             className="rounded-xl bg-sky-700 px-6 py-3 text-white shadow hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400"
-            onClick={() => console.log('Siguiente actividad')}
+            onClick={() =>
+              navigate('/resultado', {
+                state: { score, reward },
+              })
+            }
           >
             Siguiente actividad
           </button>

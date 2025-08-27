@@ -9,7 +9,7 @@ export default function Menu() {
     return (
         <nav className="sticky top-0 z-40 bg-zinc-900/95 border-b border-zinc-800 backdrop-blur supports-[backdrop-filter]:bg-zinc-900/80">
             <ul className="mx-auto flex max-w-screen-xl flex-wrap items-center gap-2 p-2">
-                <li><NavLink to="/" className={linkCls}>App</NavLink></li>
+        
                 <li><NavLink to="/inicio" className={linkCls}>Inicio</NavLink></li>
                 <li><NavLink to="/actividades" className={linkCls}>Actividades</NavLink></li>
                 <li><NavLink to="/actividad" className={linkCls}>Actividad</NavLink></li>
