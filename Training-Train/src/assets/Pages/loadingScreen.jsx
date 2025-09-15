@@ -30,8 +30,8 @@ export default function LoadingScreen() {
           className="w-72 md:w-80 h-auto select-none drop-shadow"
           draggable={false}
           onError={(e) => {
-            e.currentTarget.onerror = null
-            e.currentTarget.src = '/vite.svg'
+            // Oculta la imagen si falla la carga; evita usar /vite.svg
+            e.currentTarget.style.display = 'none'
           }}
         />
 

@@ -29,8 +29,8 @@ export default function Correcto() {
           alt="Training train"
           className="w-60 md:w-72 h-auto drop-shadow"
           onError={(e) => {
-            e.currentTarget.onerror = null
-            e.currentTarget.src = '/vite.svg'
+            // Oculta la imagen si falla la carga; evita usar /vite.svg
+            e.currentTarget.style.display = 'none'
           }}
         />
 

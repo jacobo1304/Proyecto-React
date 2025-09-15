@@ -36,8 +36,8 @@ export default function Login() {
           src={logo}
           alt="Logo"
           onError={(e) => {
-            e.currentTarget.onerror = null
-            e.currentTarget.src = '/vite.svg'
+            // Oculta la imagen si falla la carga; evita usar /vite.svg
+            e.currentTarget.style.display = 'none'
           }}
           className="w-64 md:w-80 h-auto select-none"
           draggable={false}
@@ -95,7 +95,16 @@ export default function Login() {
           className="mt-2 rounded-2xl bg-sky-600 px-8 py-4 text-2xl font-medium text-white shadow-md shadow-sky-900/40 transition-colors hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400 disabled:cursor-not-allowed disabled:opacity-50"
           onClick={() => {
             if (company !== requiredCompanyValue) {
-              showToast({ type: 'error', message: `Solo puedes acceder con ${requiredCompanyLabel}` })
+              showToast({
+                type: 'error',
+                message: `Solo puedes acceder con ${requiredCompanyLabel}`,
+                onAction: () => {
+                  // acción simple de reintento: limpiar selección y enfocar el select
+                  //setCompany('')
+                //  const select = document.getElementById('company')
+                //  if (select) select.focus()
+                },
+              })
               return
             }
             // Persistimos en store
