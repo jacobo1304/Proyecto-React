@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import FooterNav from '../../components/FooterNav'
+import FooterNav from '../components/FooterNav'
 
 const DATA = {
   correos: {

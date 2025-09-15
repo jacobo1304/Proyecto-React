@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import ConfirmDialog from '../../components/ConfirmDialog'
-import FooterNav from '../../components/FooterNav'
+import ConfirmDialog from '../components/ConfirmDialog'
+import FooterNav from '../components/FooterNav'
 
 export default function Confirmacion() {
   const [open, setOpen] = useState(false)

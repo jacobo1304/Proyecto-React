@@ -18,10 +18,12 @@ import Tienda from './assets/Pages/tienda.jsx'
 import InfoActividad from './assets/Pages/infoActividad.jsx'
 import Actividad from './assets/Pages/Actividad.jsx'
 import Resultado from './assets/Pages/Resultado.jsx'
-
+import { Toaster} from  'react-hot-toast'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Toaster/>
+   
     <BrowserRouter>
       <Menu />
       <Routes>
@@ -39,7 +41,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/resultado" element={<Resultado />} />
         <Route path="/loading" element={<LoadingScreen />} />
         <Route path="/correcto" element={<Correcto />} />
-  <Route path="/incorrecto" element={<Incorrecto />} />
+        <Route path="/incorrecto" element={<Incorrecto />} />
         <Route path="/confirmacion" element={<Confirmacion />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

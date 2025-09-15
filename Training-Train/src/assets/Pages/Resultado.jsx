@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import FooterNav from '../../components/FooterNav'
+import FooterNav from '../components/FooterNav'
 
 export default function Resultado() {
 	const navigate = useNavigate()

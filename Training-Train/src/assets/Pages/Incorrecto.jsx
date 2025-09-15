@@ -1,4 +1,4 @@
-import FooterNav from '../../components/FooterNav'
+import FooterNav from '../components/FooterNav'
 
 export default function Incorrecto() {
   const score = 0

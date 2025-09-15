@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import logo from "../Imgs/traininglogo.png" 
 
 export default function Login() {
   const [company, setCompany] = useState('')
@@ -9,14 +10,14 @@ export default function Login() {
     <main className="min-h-screen bg-zinc-900 text-zinc-100">
       <div className="mx-auto flex min-h-screen max-w-screen-sm flex-col items-center justify-center gap-10 p-6 text-center">
         {/* Título */}
-        <h1 className="text-sky-300 text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-sm">
-          Training train
+       <h1 className="quicksand-main text-sky-300 text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-sm">
+        Training train
         </h1>
 
         {/* Imagen del tren */}
         <img
-          src="/images/Training Train Proyecto DCU. (3).png"
-          alt="Tren amarillo"
+          src={logo}
+          alt="Logo"
           onError={(e) => {
             e.currentTarget.onerror = null
             e.currentTarget.src = '/vite.svg'

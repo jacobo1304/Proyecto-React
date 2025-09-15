@@ -1,4 +1,4 @@
-import FooterNav from '../../components/FooterNav'
+import FooterNav from '../components/FooterNav'
 import { useNavigate } from 'react-router-dom'
 
 export default function Correcto() {

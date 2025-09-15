@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import FooterNav from '../../components/FooterNav'
-import ConfirmDialog from '../../components/ConfirmDialog'
+import FooterNav from '../components/FooterNav'
+import ConfirmDialog from '../components/ConfirmDialog'
 
 const BANK_SCENARIO = {
   id: 'correos',
