@@ -1,8 +1,12 @@
 import FooterNav from '../components/FooterNav'
 import { useNavigate } from 'react-router-dom'
+import { useAuthStore } from '../../store/authStore'
+import { useWalletStore } from '../../store/walletStore'
 
 export default function Inicio() {
   const navigate = useNavigate()
+  const userName = useAuthStore((s) => s.userName)
+  const coins = useWalletStore((s) => s.coins)
   const cursos = [
     { id: 1, titulo: 'Riesgos del trabajo', img: '/images/Riesgos%20del%20trabajo.jpg' },
     { id: 2, titulo: 'Seguridad de la Información', img: '/images/SeguridadInformacion.jpg' },
@@ -36,10 +40,10 @@ export default function Inicio() {
 
         {/* Saludo y saldo */}
         <section className="mt-8 grid grid-cols-[1fr_auto] items-start gap-4">
-          <h1 className="text-4xl font-extrabold tracking-wide text-sky-300">Hola Carlos!</h1>
+          <h1 className="text-4xl font-extrabold tracking-wide text-sky-300">Hola {userName || 'Carlos'}!</h1>
           <div className="flex items-center gap-3 rounded-xl bg-amber-700 px-4 py-2 text-white shadow">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-amber-500 text-zinc-900 font-bold">$</span>
-            <span className="text-2xl font-semibold">50</span>
+            <span className="text-2xl font-semibold">{coins}</span>
           </div>
         </section>
 

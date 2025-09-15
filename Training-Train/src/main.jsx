@@ -18,11 +18,11 @@ import Tienda from './assets/Pages/tienda.jsx'
 import InfoActividad from './assets/Pages/infoActividad.jsx'
 import Actividad from './assets/Pages/Actividad.jsx'
 import Resultado from './assets/Pages/Resultado.jsx'
-import { Toaster} from  'react-hot-toast'
+import ToastContainer from './components/ToastContainer.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Toaster/>
+    <ToastContainer />
    
     <BrowserRouter>
       <Menu />

@@ -1,11 +1,11 @@
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import FooterNav from '../components/FooterNav'
+import { useActivityStore } from '../../store/activityStore'
 
 export default function Resultado() {
 	const navigate = useNavigate()
-	const { state } = useLocation()
-	const score = typeof state?.score === 'number' ? state.score : 86
-	const reward = typeof state?.reward === 'number' ? state.reward : 8
+	const score = useActivityStore((s) => (typeof s.lastScore === 'number' ? s.lastScore : 86))
+	const reward = useActivityStore((s) => (typeof s.lastReward === 'number' ? s.lastReward : 8))
 
 	const progress = Math.max(0, Math.min(100, score))
 
