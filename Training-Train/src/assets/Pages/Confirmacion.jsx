@@ -6,13 +6,13 @@ export default function Confirmacion() {
   const [open, setOpen] = useState(false)
 
   return (
-    <main className="min-h-dvh bg-zinc-900 text-zinc-100 pb-28">
+    <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Contenido de ejemplo detrás del modal */}
       <div className="mx-auto max-w-screen-sm px-4 pt-6">
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="rounded-xl bg-sky-700 px-6 py-3 text-white shadow hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400"
+          className="rounded-xl bg-sky-600 px-6 py-3 text-white shadow hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-sky-700 dark:hover:bg-sky-600"
         >
           Abrir confirmación
         </button>
@@ -21,9 +21,9 @@ export default function Confirmacion() {
           <p>
             Esta pantalla demuestra un fondo con contenido que se desenfoca cuando aparece el cuadro de confirmación.
           </p>
-          <div className="h-40 rounded-lg bg-zinc-800/70" />
-          <div className="h-40 rounded-lg bg-zinc-800/70" />
-          <div className="h-40 rounded-lg bg-zinc-800/70" />
+          <div className="h-40 rounded-lg bg-zinc-200 dark:bg-zinc-800/70" />
+          <div className="h-40 rounded-lg bg-zinc-200 dark:bg-zinc-800/70" />
+          <div className="h-40 rounded-lg bg-zinc-200 dark:bg-zinc-800/70" />
         </div>
       </div>
 

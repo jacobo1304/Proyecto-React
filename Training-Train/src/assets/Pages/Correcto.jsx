@@ -1,12 +1,14 @@
 import FooterNav from '../components/FooterNav'
 import { useNavigate } from 'react-router-dom'
 import { useActivityStore } from '../../store/activityStore'
+import { useWalletStore } from '../../store/walletStore'
 
 export default function Correcto() {
   const score = 86
   const reward = 8
   const navigate = useNavigate()
   const finishActivity = useActivityStore((s) => s.finishActivity)
+  const addCoins = useWalletStore((s) => s.addCoins)
 
   return (
     <main className="relative min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
@@ -56,6 +58,7 @@ export default function Correcto() {
             className="rounded-xl bg-sky-700 px-6 py-3 text-white shadow hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400"
             onClick={() => {
               finishActivity({ score, reward })
+              addCoins(reward)
               navigate('/resultado')
             }}
           >

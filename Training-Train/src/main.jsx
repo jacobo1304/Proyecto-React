@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Login from './assets/Pages/login.jsx'
 import Inicio from './assets/Pages/inicio.jsx'
 import Actividades from './assets/Pages/Actividades.jsx'
@@ -22,6 +22,14 @@ import ThemeRoot from './components/ThemeRoot.jsx'
 import Opciones from './assets/Pages/Opciones.jsx'
 import Terminos from './assets/Pages/Terminos.jsx'
 
+import { useAuthStore } from './store/authStore'
+
+function ProtectedRoute({ children }) {
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
+  if (!isAuthenticated) return <Navigate to="/login" replace />
+  return children
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeRoot>
@@ -31,16 +39,16 @@ createRoot(document.getElementById('root')).render(
         <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/inicio" element={<Inicio />} />
-        <Route path="/actividades" element={<Actividades />} />
-  <Route path="/actividad" element={<Actividad />} />
-  <Route path="/actividad/:id" element={<Actividad />} />
-  <Route path="/info-actividad" element={<InfoActividad />} />
-  <Route path="/info-actividad/:id" element={<InfoActividad />} />
-        <Route path="/perfil" element={<Perfil />} />
-        <Route path="/progreso" element={<Progreso />} />
-        <Route path="/tienda" element={<Tienda />} />
-        <Route path="/resultado" element={<Resultado />} />
+    <Route path="/inicio" element={<ProtectedRoute><Inicio /></ProtectedRoute>} />
+    <Route path="/actividades" element={<ProtectedRoute><Actividades /></ProtectedRoute>} />
+    <Route path="/actividad" element={<ProtectedRoute><Actividad /></ProtectedRoute>} />
+    <Route path="/actividad/:id" element={<ProtectedRoute><Actividad /></ProtectedRoute>} />
+    <Route path="/info-actividad" element={<ProtectedRoute><InfoActividad /></ProtectedRoute>} />
+    <Route path="/info-actividad/:id" element={<ProtectedRoute><InfoActividad /></ProtectedRoute>} />
+    <Route path="/perfil" element={<ProtectedRoute><Perfil /></ProtectedRoute>} />
+    <Route path="/progreso" element={<ProtectedRoute><Progreso /></ProtectedRoute>} />
+    <Route path="/tienda" element={<ProtectedRoute><Tienda /></ProtectedRoute>} />
+    <Route path="/resultado" element={<ProtectedRoute><Resultado /></ProtectedRoute>} />
         <Route path="/loading" element={<LoadingScreen />} />
         <Route path="/correcto" element={<Correcto />} />
         <Route path="/incorrecto" element={<Incorrecto />} />

@@ -24,37 +24,37 @@ export default function Actividad() {
   }, [id])
 
   return (
-    <main className="min-h-dvh bg-zinc-900 text-zinc-100 pb-28">
+    <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Header */}
-      <header className="sticky top-0 z-20 flex items-center gap-3 border-b border-zinc-800 bg-zinc-900/95 px-4 py-3 backdrop-blur">
+      <header className="sticky top-0 z-20 flex items-center gap-3 border-b px-4 py-3 backdrop-blur border-zinc-200 bg-zinc-50/95 dark:border-zinc-800 dark:bg-zinc-900/95 transition-colors">
         <button
           type="button"
           aria-label="Volver"
-          className="rounded-lg p-2 text-zinc-100 hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          className="rounded-lg p-2 text-zinc-900 hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-zinc-100 dark:hover:bg-zinc-800"
           onClick={() => setOpenConfirm(true)}
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M15 18l-6-6 6-6" />
           </svg>
         </button>
-        <h1 className="flex-1 text-center text-2xl font-extrabold text-sky-300">{data.titulo}</h1>
+        <h1 className="flex-1 text-center text-2xl font-extrabold text-sky-700 dark:text-sky-300">{data.titulo}</h1>
         <div className="w-6" />
       </header>
 
       {/* Imagen principal */}
       <div className="mx-auto max-w-screen-sm">
         <div className="relative">
-          <div className="h-64 w-full bg-zinc-800">
+          <div className="h-64 w-full bg-zinc-200 dark:bg-zinc-800">
             <img src={data.img} alt={data.titulo} className="h-64 w-full object-cover" />
           </div>
         </div>
 
         {/* Enunciado */}
         <div className="px-4 py-4">
-          <p className="text-base md:text-lg text-zinc-200">
+          <p className="text-base md:text-lg text-zinc-700 dark:text-zinc-200">
             {data.pregunta}
           </p>
-          <h2 className="mt-3 text-xl font-bold text-sky-300">¿Qué harás ahora?</h2>
+          <h2 className="mt-3 text-xl font-bold text-sky-700 dark:text-sky-300">¿Qué harás ahora?</h2>
         </div>
 
         {/* Opciones */}
@@ -71,10 +71,10 @@ export default function Actividad() {
                   navigate('/incorrecto')
                 }
               }}
-              className={`rounded-lg border px-4 py-3 text-zinc-100 ${
+              className={`rounded-lg border px-4 py-3 transition-colors ${
                 seleccion === op
-                  ? 'border-sky-500 bg-sky-700'
-                  : 'border-zinc-600 bg-zinc-800 hover:bg-zinc-700'
+                    ? 'border-sky-500 bg-sky-600 text-white dark:bg-sky-700'
+                    : 'border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700'
               }`}
             >
               {op}

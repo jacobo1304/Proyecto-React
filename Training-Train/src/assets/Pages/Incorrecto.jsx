@@ -4,7 +4,7 @@ export default function Incorrecto() {
   const score = 0
 
   return (
-    <main className="relative min-h-dvh bg-zinc-900 text-zinc-100 pb-28">
+    <main className="relative min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Overlay (puedes cambiar por otra imagen si la tienes) */}
       <img
         src="/images/Confetti.png"
@@ -15,7 +15,7 @@ export default function Incorrecto() {
         }}
       />
       {/* capa para teñir en rojo */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-red-900/30" />
+  <div className="pointer-events-none absolute inset-0 z-0 bg-red-900/20 dark:bg-red-900/30" />
 
       <div className="relative z-10 mx-auto flex max-w-screen-sm flex-col items-center gap-8 px-4 pt-10 text-center">
         <h1 className="text-red-400 text-4xl font-extrabold">¡Incorrecto!</h1>
@@ -41,10 +41,10 @@ export default function Incorrecto() {
 
         {/* Mensajes */}
         <div className="mt-2 space-y-4">
-          <p className="text-2xl font-extrabold text-zinc-100">
+          <p className="text-2xl font-extrabold text-zinc-900 dark:text-zinc-100">
             Respuesta incorrecta.
           </p>
-          <p className="text-xl text-zinc-300">Intenta de nuevo.</p>
+          <p className="text-xl text-zinc-700 dark:text-zinc-300">Intenta de nuevo.</p>
         </div>
 
         <div className="mt-2">

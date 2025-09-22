@@ -5,12 +5,18 @@ export default function ThemeSlider() {
   const setTheme = useThemeStore((s) => s.setTheme)
 
   const isLight = theme === 'light'
+  
+  console.log(`🎛️ [ThemeSlider] Current theme: ${theme}, isLight: ${isLight}`)
 
   return (
     <button
       role="switch"
       aria-checked={isLight}
-      onClick={() => setTheme(isLight ? 'dark' : 'light')}
+      onClick={() => {
+        const newTheme = isLight ? 'dark' : 'light'
+        console.log(`🎛️ [ThemeSlider] Switching from ${theme} to ${newTheme}`)
+        setTheme(newTheme)
+      }}
       className={`relative inline-flex h-7 w-14 items-center rounded-full border border-zinc-600/60 bg-zinc-700 transition dark:border-zinc-500/60 ${
         isLight ? 'bg-sky-200' : 'bg-zinc-700'
       }`}

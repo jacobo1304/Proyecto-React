@@ -17,11 +17,11 @@ export default function Perfil() {
   return (
     <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Header */}
-      <header className="sticky top-0 z-20 flex items-center gap-4 border-b border-zinc-700/60 bg-zinc-900/95 px-4 py-3 backdrop-blur">
+      <header className="sticky top-0 z-20 flex items-center gap-4 border-b px-4 py-3 backdrop-blur border-zinc-200 bg-zinc-50/95 dark:border-zinc-700/60 dark:bg-zinc-900/95">
         <button
           onClick={() => (window.history.length > 1 ? navigate(-1) : navigate('/inicio'))}
           aria-label="Volver"
-          className="group rounded-md p-1 text-2xl leading-none text-zinc-200 transition hover:bg-zinc-700/40 focus:outline-none focus:ring-2 focus:ring-sky-400"
+          className="group rounded-md p-1 text-2xl leading-none text-zinc-900 transition hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:text-zinc-200 dark:hover:bg-zinc-700/40"
         >
           <span className="block translate-x-0 transition group-active:-translate-x-1">❮</span>
         </button>

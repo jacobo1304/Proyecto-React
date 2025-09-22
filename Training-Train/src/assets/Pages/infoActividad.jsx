@@ -30,7 +30,7 @@ export default function InfoActividad() {
   const info = useMemo(() => DATA[id] ?? null, [id])
 
   return (
-    <main className="min-h-dvh bg-zinc-900 text-zinc-100 pb-28">
+    <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       <div className="mx-auto max-w-screen-sm">
         {/* Imagen principal */}
         <div className="relative">
@@ -45,7 +45,7 @@ export default function InfoActividad() {
             type="button"
             aria-label="Volver"
             onClick={() => window.history.back()}
-            className="absolute left-2 top-2 rounded-lg bg-zinc-900/70 p-2 text-zinc-100 backdrop-blur hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="absolute left-2 top-2 rounded-lg p-2 text-zinc-900 bg-zinc-100/80 backdrop-blur hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-zinc-100 dark:bg-zinc-900/70 dark:hover:bg-zinc-800"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M15 18l-6-6 6-6" />
@@ -55,28 +55,28 @@ export default function InfoActividad() {
 
         <div className="px-4">
           {/* Título */}
-          <h1 className="mt-4 text-3xl font-extrabold tracking-wide text-sky-300">
+          <h1 className="mt-4 text-3xl font-extrabold tracking-wide text-sky-700 dark:text-sky-300">
             {info?.titulo || 'Información de la actividad'}
           </h1>
 
           {/* Metadata */}
-          <dl className="mt-3 grid grid-cols-3 gap-3 text-sm text-zinc-300">
+          <dl className="mt-3 grid grid-cols-3 gap-3 text-sm text-zinc-700 dark:text-zinc-300">
             <div>
-              <dt className="text-zinc-400">Duración</dt>
+              <dt className="text-zinc-500 dark:text-zinc-400">Duración</dt>
               <dd className="font-medium">{info?.duracion || '—'}</dd>
             </div>
             <div>
-              <dt className="text-zinc-400">Nivel</dt>
+              <dt className="text-zinc-500 dark:text-zinc-400">Nivel</dt>
               <dd className="font-medium">{info?.nivel || '—'}</dd>
             </div>
             <div>
-              <dt className="text-zinc-400">Expira</dt>
+              <dt className="text-zinc-500 dark:text-zinc-400">Expira</dt>
               <dd className="font-medium">{info?.expira || '—'}</dd>
             </div>
           </dl>
 
           {/* Descripción */}
-          <p className="mt-4 text-lg text-zinc-200">
+          <p className="mt-4 text-lg text-zinc-700 dark:text-zinc-200">
             {info?.desc || 'Detalles de la actividad y objetivos de aprendizaje.'}
           </p>
 
@@ -84,14 +84,14 @@ export default function InfoActividad() {
           <div className="mt-6 flex gap-3">
             <button
               type="button"
-              className="flex-1 rounded-xl bg-sky-700 px-6 py-3 text-white shadow hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              className="flex-1 rounded-xl bg-sky-600 px-6 py-3 text-white shadow hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-sky-700 dark:hover:bg-sky-600"
               onClick={() => navigate(`/actividad/${id ?? ''}`)}
             >
               Iniciar actividad
             </button>
             <button
               type="button"
-              className="rounded-xl border border-zinc-600 px-5 py-3 text-zinc-200 hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500"
+              className="rounded-xl border px-5 py-3 focus:outline-none focus:ring-2 focus:ring-zinc-500 border-zinc-300 text-zinc-900 hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-800"
               onClick={() => navigate('/actividades')}
             >
               Ver actividades
