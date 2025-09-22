@@ -9,8 +9,8 @@ export default function Resultado() {
 
 	const progress = Math.max(0, Math.min(100, score))
 
-	return (
-		<main className="relative min-h-dvh bg-zinc-900 text-zinc-100 pb-28">
+		return (
+			<main className="relative min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
 			{/* Confetti */}
 			<img
 				src="/images/Confetti.png"
@@ -22,7 +22,7 @@ export default function Resultado() {
 			/>
 
 			<div className="relative z-10 mx-auto flex max-w-screen-sm flex-col items-center gap-8 px-4 pt-10 text-center">
-				<h1 className="text-sky-300 text-4xl font-extrabold">Bien hecho!</h1>
+			<h1 className="text-4xl font-extrabold text-sky-700 dark:text-sky-300">Bien hecho!</h1>
 
 				{/* Tren */}
 				<img
@@ -37,7 +37,7 @@ export default function Resultado() {
 
 				{/* Barra de progreso */}
 				<div className="w-full max-w-md">
-					<div className="relative h-3 w-full overflow-hidden rounded-full border border-amber-500/70 bg-zinc-800/70">
+								<div className="relative h-3 w-full overflow-hidden rounded-full border border-amber-500/70 bg-zinc-200 dark:bg-zinc-800/70">
 						<div
 							className="h-full rounded-full bg-gradient-to-r from-sky-400 via-amber-400 to-amber-500"
 							style={{ width: `${progress}%` }}
@@ -48,17 +48,17 @@ export default function Resultado() {
 
 				{/* Mensajes */}
 				<div className="mt-2 space-y-4">
-					<p className="text-3xl font-extrabold text-zinc-100">
+								<p className="text-3xl font-extrabold">
 						Tuviste un puntaje de <span className="text-4xl">{score}%</span>
 					</p>
-					<p className="text-2xl text-zinc-200">Ganaste {reward} monedas de recompensa.</p>
+								<p className="text-2xl text-zinc-700 dark:text-zinc-200">Ganaste {reward} monedas de recompensa.</p>
 				</div>
 
 				{/* Botones */}
 				<div className="mt-2 flex w-full max-w-md items-center justify-center gap-4">
-					<button
+								<button
 						type="button"
-						className="flex-1 rounded-xl border border-amber-500/60 bg-transparent px-6 py-3 text-amber-300 shadow hover:bg-amber-500/10 focus:outline-none focus:ring-2 focus:ring-amber-400"
+									className="flex-1 rounded-xl border px-6 py-3 shadow focus:outline-none focus:ring-2 focus:ring-amber-400 border-amber-600/60 text-amber-700 hover:bg-amber-200/20 dark:border-amber-500/60 dark:text-amber-300 dark:hover:bg-amber-500/10"
 						onClick={() => navigate('/inicio')}
 					>
 						Inicio

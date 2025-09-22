@@ -26,9 +26,9 @@ export default function Tienda() {
   }
 
   return (
-    <main className="min-h-dvh bg-zinc-900 text-zinc-100 pb-28">
+    <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Header */}
-      <header className="sticky top-0 z-20 flex items-center gap-4 border-b border-zinc-700/60 bg-zinc-900/95 px-4 py-3 backdrop-blur">
+  <header className="sticky top-0 z-20 flex items-center gap-4 border-b px-4 py-3 backdrop-blur border-zinc-200 bg-zinc-50/95 dark:border-zinc-700/60 dark:bg-zinc-900/95">
         <button
           onClick={() => (window.history.length > 1 ? navigate(-1) : navigate('/inicio'))}
           aria-label="Volver"
@@ -36,15 +36,15 @@ export default function Tienda() {
         >
           <span className="block translate-x-0 transition group-active:-translate-x-1">❮</span>
         </button>
-        <h1 className="flex-1 text-center text-3xl font-extrabold tracking-tight text-sky-300">Tienda</h1>
+  <h1 className="flex-1 text-center text-3xl font-extrabold tracking-tight text-sky-700 dark:text-sky-300">Tienda</h1>
         <div className="w-8" />
       </header>
 
       <section className="mx-auto w-full max-w-screen-sm px-5 pt-8 space-y-10">
         {/* Saldo */}
-        <div className="mx-auto flex w-56 items-center justify-center gap-3 rounded-xl bg-amber-700/70 px-6 py-6 shadow-inner ring-1 ring-amber-600/40">
+        <div className="mx-auto flex w-56 items-center justify-center gap-3 rounded-xl px-6 py-6 shadow-inner ring-1 ring-amber-600/40 bg-amber-200/80 text-zinc-900 dark:bg-amber-700/70 dark:text-amber-100">
           <CoinIcon className="h-10 w-10" />
-          <span className="text-4xl font-bold text-amber-100">{coins}</span>
+          <span className="text-4xl font-bold">{coins}</span>
         </div>
 
         {/* Lista recompensas */}
@@ -56,19 +56,22 @@ export default function Tienda() {
                 <button
                   onClick={() => buy(r)}
                   disabled={disabled}
-                  className={`group flex w-full items-center gap-4 rounded-sm border border-zinc-700/60 bg-zinc-800/70 px-4 py-4 text-left shadow transition focus:outline-none focus:ring-2 focus:ring-sky-400 md:rounded-md ${
-                    disabled ? 'opacity-60 cursor-not-allowed' : 'hover:bg-zinc-700/60'
+                  className={`group flex w-full items-center gap-4 rounded-sm border px-4 py-4 text-left shadow transition focus:outline-none focus:ring-2 focus:ring-sky-400 md:rounded-md ${
+                    disabled ? 'opacity-60 cursor-not-allowed' : 'hover:bg-zinc-100 dark:hover:bg-zinc-700/60'
                   }`}
+                  style={{
+                    backgroundColor: 'var(--tw-colors-zinc-100, rgba(244,244,245,0.7))',
+                  }}
                 >
                   <div className="flex items-center gap-3">
                     <CoinIcon className="h-10 w-10 flex-shrink-0" />
                     <div className="h-12 w-px bg-zinc-600/60" />
-                    <p className="text-lg font-semibold tracking-wide text-zinc-100">
+                    <p className="text-lg font-semibold tracking-wide">
                       x{r.cost}
                     </p>
                   </div>
-                  <p className="ml-4 flex-1 text-lg font-medium text-zinc-200">{r.label}</p>
-                  <span className="text-sm text-sky-300 opacity-0 transition group-hover:opacity-100 md:text-base">
+                  <p className="ml-4 flex-1 text-lg font-medium text-zinc-700 dark:text-zinc-200">{r.label}</p>
+                  <span className="text-sm text-sky-700 dark:text-sky-300 opacity-0 transition group-hover:opacity-100 md:text-base">
                     {disabled ? 'Faltan' : 'Canjear'}
                   </span>
                 </button>

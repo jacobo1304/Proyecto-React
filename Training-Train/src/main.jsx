@@ -11,7 +11,6 @@ import Correcto from './assets/Pages/Correcto.jsx'
 import Incorrecto from './assets/Pages/Incorrecto.jsx'
 import Confirmacion from './assets/Pages/Confirmacion.jsx'
 import NotFound from './assets/Pages/NotFound.jsx'
-import Menu from './assets/Pages/Menu.jsx'
 import Perfil from './assets/Pages/perfil.jsx'
 import Progreso from './assets/Pages/progreso.jsx'
 import Tienda from './assets/Pages/tienda.jsx'
@@ -19,14 +18,17 @@ import InfoActividad from './assets/Pages/infoActividad.jsx'
 import Actividad from './assets/Pages/Actividad.jsx'
 import Resultado from './assets/Pages/Resultado.jsx'
 import ToastContainer from './components/ToastContainer.jsx'
+import ThemeRoot from './components/ThemeRoot.jsx'
+import Opciones from './assets/Pages/Opciones.jsx'
+import Terminos from './assets/Pages/Terminos.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ToastContainer />
-   
-    <BrowserRouter>
-      <Menu />
-      <Routes>
+    <ThemeRoot>
+      <ToastContainer />
+
+      <BrowserRouter>
+        <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
         <Route path="/inicio" element={<Inicio />} />
@@ -43,8 +45,11 @@ createRoot(document.getElementById('root')).render(
         <Route path="/correcto" element={<Correcto />} />
         <Route path="/incorrecto" element={<Incorrecto />} />
         <Route path="/confirmacion" element={<Confirmacion />} />
+        <Route path="/opciones" element={<Opciones />} />
+        <Route path="/terminos" element={<Terminos />} />
         <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </ThemeRoot>
   </StrictMode>,
 )

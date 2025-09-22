@@ -9,7 +9,7 @@ export default function Correcto() {
   const finishActivity = useActivityStore((s) => s.finishActivity)
 
   return (
-    <main className="relative min-h-dvh bg-zinc-900 text-zinc-100 pb-28">
+    <main className="relative min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Confetti como overlay */}
       <img
         src="/images/Confetti.png"
@@ -21,7 +21,7 @@ export default function Correcto() {
       />
 
       <div className="relative z-10 mx-auto flex max-w-screen-sm flex-col items-center gap-8 px-4 pt-10 text-center">
-        <h1 className="text-sky-300 text-4xl font-extrabold">Bien hecho!</h1>
+        <h1 className="text-4xl font-extrabold text-sky-700 dark:text-sky-300">Bien hecho!</h1>
 
         {/* Tren */}
         <img
@@ -36,7 +36,7 @@ export default function Correcto() {
 
         {/* Barra de progreso estilizada */}
         <div className="w-full max-w-md">
-          <div className="relative h-3 w-full overflow-hidden rounded-full border border-amber-500/70 bg-zinc-800/70">
+          <div className="relative h-3 w-full overflow-hidden rounded-full border border-amber-500/70 bg-zinc-200 dark:bg-zinc-800/70">
             <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-sky-400 via-amber-400 to-amber-500" />
             <span className="absolute right-3 top-1/2 -translate-y-1/2 text-amber-400">🚄</span>
           </div>
@@ -44,10 +44,10 @@ export default function Correcto() {
 
         {/* Mensajes */}
         <div className="mt-2 space-y-4">
-          <p className="text-3xl font-extrabold text-zinc-100">
+          <p className="text-3xl font-extrabold">
             Tuviste un puntaje de <span className="text-4xl">{score}%</span>
           </p>
-          <p className="text-2xl text-zinc-200">Ganaste {reward} monedas de recompensa.</p>
+          <p className="text-2xl text-zinc-700 dark:text-zinc-200">Ganaste {reward} monedas de recompensa.</p>
         </div>
 
         <div className="mt-2">

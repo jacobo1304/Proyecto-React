@@ -15,7 +15,7 @@ export default function Perfil() {
   }
 
   return (
-    <main className="min-h-dvh bg-zinc-900 text-zinc-100 pb-28">
+    <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Header */}
       <header className="sticky top-0 z-20 flex items-center gap-4 border-b border-zinc-700/60 bg-zinc-900/95 px-4 py-3 backdrop-blur">
         <button
@@ -25,37 +25,37 @@ export default function Perfil() {
         >
           <span className="block translate-x-0 transition group-active:-translate-x-1">❮</span>
         </button>
-        <h1 className="flex-1 text-center text-3xl font-extrabold tracking-tight text-zinc-100">
-          <span className="text-sky-300">Mi Perfil:</span>
+        <h1 className="flex-1 text-center text-3xl font-extrabold tracking-tight">
+          <span className="text-sky-700 dark:text-sky-300">Mi Perfil:</span>
         </h1>
         <div className="w-8" /> {/* Espaciador para balancear */}
       </header>
 
       <section className="mx-auto w-full max-w-screen-sm px-6 pt-6">
         {/* Avatar */}
-        <div className="mx-auto mb-8 flex h-40 w-40 items-center justify-center rounded-full bg-zinc-700 text-5xl text-zinc-200">
+        <div className="mx-auto mb-8 flex h-40 w-40 items-center justify-center rounded-full bg-zinc-300 text-5xl text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200">
           <span role="img" aria-label="avatar">👤</span>
         </div>
 
         <dl className="space-y-8">
           <div>
-            <dt className="text-xl font-bold text-sky-300">Nombre</dt>
+            <dt className="text-xl font-bold text-sky-700 dark:text-sky-300">Nombre</dt>
             <dd className="mt-1 text-lg font-medium text-zinc-200">{data.nombre}</dd>
           </div>
           <div>
-            <dt className="text-xl font-bold text-sky-300">Empresa</dt>
+            <dt className="text-xl font-bold text-sky-700 dark:text-sky-300">Empresa</dt>
             <dd className="mt-1 text-lg font-medium text-zinc-200">{data.empresa}</dd>
           </div>
           <div>
-            <dt className="text-xl font-bold text-sky-300">Id de empleado:</dt>
+            <dt className="text-xl font-bold text-sky-700 dark:text-sky-300">Id de empleado:</dt>
             <dd className="mt-1 text-lg font-medium text-zinc-200">{data.idEmpleado}</dd>
           </div>
             <div>
-            <dt className="text-xl font-bold text-sky-300">Cargo:</dt>
+            <dt className="text-xl font-bold text-sky-700 dark:text-sky-300">Cargo:</dt>
             <dd className="mt-1 text-lg font-medium text-zinc-200">{data.cargo}</dd>
           </div>
           <div>
-            <dt className="text-xl font-bold text-sky-300">Cursos realizados</dt>
+            <dt className="text-xl font-bold text-sky-700 dark:text-sky-300">Cursos realizados</dt>
             <dd className="mt-2 space-y-1">
               {data.cursos.map((c) => (
                 <p key={c} className="text-lg font-medium text-zinc-200">{c}</p>
@@ -63,7 +63,7 @@ export default function Perfil() {
             </dd>
           </div>
           <div>
-            <dt className="text-xl font-bold text-sky-300">Supervisor encargado:</dt>
+            <dt className="text-xl font-bold text-sky-700 dark:text-sky-300">Supervisor encargado:</dt>
             <dd className="mt-1 text-lg font-medium text-zinc-200">{data.supervisor}</dd>
           </div>
         </dl>

@@ -2,12 +2,14 @@ import { NavLink } from 'react-router-dom'
 
 export default function FooterNav({ current, onNavigate }) {
 	const itemCls = (active) =>
-		`flex flex-col items-center justify-center gap-1 text-xs ${active ? 'text-sky-300' : 'text-zinc-200'}`
+		`flex flex-col items-center justify-center gap-1 text-xs text-zinc-700 dark:text-zinc-200 ${
+			active ? 'text-sky-600 dark:text-sky-300' : ''
+		}`
 
-	const btnCls = 'inline-flex items-center justify-center rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-400'
+	const btnCls = 'inline-flex items-center justify-center rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-500'
 
 	return (
-		<nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-700/60 bg-zinc-900/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-900/80">
+		<nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:border-zinc-700/60 dark:bg-zinc-900/95 dark:supports-[backdrop-filter]:bg-zinc-900/80">
 			<div className="mx-auto grid max-w-screen-sm grid-cols-3 gap-2 px-6 py-3">
 				{/* Home */}
 				<NavLink
@@ -26,7 +28,7 @@ export default function FooterNav({ current, onNavigate }) {
 				{/* Store */}
 				<NavLink
 					to="/tienda"
-					className={({ isActive }) => `${itemCls(isActive || current === 'store')} ${btnCls}`}
+								className={({ isActive }) => `${itemCls(isActive || current === 'store')} ${btnCls}`}
 					aria-label="Tienda"
 					onClick={() => onNavigate?.('store')}
 				>
@@ -41,7 +43,7 @@ export default function FooterNav({ current, onNavigate }) {
 				{/* Profile */}
 				<NavLink
 					to="/perfil"
-					className={({ isActive }) => `${itemCls(isActive || current === 'profile')} ${btnCls}`}
+								className={({ isActive }) => `${itemCls(isActive || current === 'profile')} ${btnCls}`}
 					aria-label="Perfil"
 					onClick={() => onNavigate?.('profile')}
 				>

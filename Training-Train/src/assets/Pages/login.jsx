@@ -24,10 +24,10 @@ export default function Login() {
     companies.find((c) => c.value === requiredCompanyValue)?.label || requiredCompanyValue
 
   return (
-    <main className="min-h-screen bg-zinc-900 text-zinc-100">
+    <main className="min-h-screen transition-colors bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
       <div className="mx-auto flex min-h-screen max-w-screen-sm flex-col items-center justify-center gap-10 p-6 text-center">
         {/* Título */}
-       <h1 className="quicksand-main text-sky-300 text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-sm">
+       <h1 className="quicksand-main text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-sm text-sky-600 dark:text-sky-300">
         Training train
         </h1>
 
@@ -44,7 +44,7 @@ export default function Login() {
         />
 
         {/* Subtítulo tipo enlace subrayado */}
-        <h2 className="text-sky-300 text-3xl font-semibold decoration-2">
+        <h2 className="text-3xl font-semibold decoration-2 text-sky-600 dark:text-sky-300">
           ¡Bienvenido a bordo!
         </h2>
 
@@ -58,7 +58,7 @@ export default function Login() {
               id="company"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="w-full appearance-none rounded-xl border border-zinc-700/80 bg-zinc-900/70 px-5 py-4 text-lg text-zinc-100 placeholder:text-zinc-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+              className="w-full appearance-none rounded-xl px-5 py-4 text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500 border border-zinc-300 bg-white/80 text-zinc-900 placeholder:text-zinc-500 dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:text-zinc-100 dark:placeholder:text-zinc-400"
               aria-label="Selecciona tu empresa"
             >
               <option value="" disabled>
@@ -84,7 +84,7 @@ export default function Login() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Tu nombre"
-            className="mt-2 w-full rounded-xl border border-zinc-700/80 bg-zinc-900/70 px-5 py-4 text-lg text-zinc-100 placeholder:text-zinc-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="mt-2 w-full rounded-xl px-5 py-4 text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500 border border-zinc-300 bg-white/80 text-zinc-900 placeholder:text-zinc-500 dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:text-zinc-100 dark:placeholder:text-zinc-400"
           />
         </div>
 
