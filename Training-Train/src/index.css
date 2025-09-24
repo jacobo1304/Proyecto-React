@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @keyframes fadeInToast {
 	from { opacity: 0; transform: translateY(-6px) scale(.98); }
