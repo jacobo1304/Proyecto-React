@@ -19,7 +19,6 @@ import Actividad from './assets/Pages/Actividad.jsx'
 import Resultado from './assets/Pages/Resultado.jsx'
 import ToastContainer from './components/ToastContainer.jsx'
 import ThemeRoot from './components/ThemeRoot.jsx'
-import Opciones from './assets/Pages/Opciones.jsx'
 import Terminos from './assets/Pages/Terminos.jsx'
 
 import { useAuthStore } from './store/authStore'
@@ -53,7 +52,6 @@ createRoot(document.getElementById('root')).render(
         <Route path="/correcto" element={<Correcto />} />
         <Route path="/incorrecto" element={<Incorrecto />} />
         <Route path="/confirmacion" element={<Confirmacion />} />
-        <Route path="/opciones" element={<Opciones />} />
         <Route path="/terminos" element={<Terminos />} />
         <Route path="*" element={<NotFound />} />
         </Routes>

@@ -2,6 +2,7 @@ import { Toaster, toast } from 'react-hot-toast'
 import { useEffect } from 'react'
 import { useUIStore } from '../store/uiStore'
 import ErrorToast from '../assets/components/toast/ErrorToast'
+import SuccessToast from './SuccessToast'
 
 export default function ToastContainer() {
   const toasts = useUIStore((s) => s.toasts)
@@ -14,6 +15,10 @@ export default function ToastContainer() {
       if (t.type === 'error') {
         toast.custom((tt) => (
           <ErrorToast t={tt} message={t.message} onAction={t.onAction} />
+        ))
+      } else if (t.type === 'activity-success') {
+        toast.custom((tt) => (
+          <SuccessToast t={tt} title={t.title} message={t.message} imageSrc={t.imageSrc} />
         ))
       } else if (t.type === 'success') {
         toast.success(t.message)

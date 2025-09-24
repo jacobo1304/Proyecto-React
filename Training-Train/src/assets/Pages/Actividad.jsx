@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import FooterNav from '../components/FooterNav'
 import ConfirmDialog from '../components/ConfirmDialog'
+import { useUIStore } from '../../store/uiStore'
 
 const BANK_SCENARIO = {
   id: 'correos',
@@ -17,6 +18,7 @@ export default function Actividad() {
   const navigate = useNavigate()
   const [openConfirm, setOpenConfirm] = useState(false)
   const [seleccion, setSeleccion] = useState(null)
+  const showToast = useUIStore((s) => s.showToast)
 
   const data = useMemo(() => {
     // En el futuro, mapear por id. Por ahora, usa BANK_SCENARIO como demo.
@@ -66,7 +68,15 @@ export default function Actividad() {
               onClick={() => {
                 setSeleccion(op)
                 if (idx === 0) {
-                  navigate('/correcto')
+                  // Toast de éxito actividad
+                  showToast({
+                    type: 'activity-success',
+                    title: '¡Respuesta correcta!',
+                    message: 'Has ganado +8 monedas',
+                    imageSrc: '/images/toast-success.png', // Nombre sugerido: sube esa imagen luego.
+                  })
+                  // Pequeño delay para que el usuario vea el toast antes del redirect
+                  setTimeout(() => navigate('/correcto'), 400)
                 } else {
                   navigate('/incorrecto')
                 }

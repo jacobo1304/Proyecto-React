@@ -1,5 +1,7 @@
 import FooterNav from './FooterNav'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import OptionsPanel from './OptionsPanel'
 
 export default function AppLayout({ 
   children, 
@@ -10,6 +12,7 @@ export default function AppLayout({
   headerImage = null 
 }) {
   const navigate = useNavigate()
+  const [showOptions, setShowOptions] = useState(false)
 
   const renderHeader = () => {
     if (showSearchHeader) {
@@ -20,7 +23,7 @@ export default function AppLayout({
             type="button"
             className="p-2 text-zinc-700 hover:text-sky-600 dark:text-zinc-100"
             aria-label="Abrir opciones"
-            onClick={() => navigate('/opciones')}
+            onClick={() => setShowOptions(true)}
           >
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M3 6h18M3 12h18M3 18h18" />
@@ -70,8 +73,8 @@ export default function AppLayout({
   }
 
   return (
-    <main className="min-h-dvh pb-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
-      <div className="mx-auto max-w-screen-sm">
+    <main className="relative min-h-dvh pb-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors overflow-hidden">
+      <div className="relative mx-auto max-w-screen-sm">
         {/* Hero imagen principal (opcional) */}
         {headerImage && (
           <div className="relative">
@@ -87,8 +90,11 @@ export default function AppLayout({
         {/* Header dinámico */}
         {renderHeader()}
 
+        {/* Panel de opciones animado */}
+        <OptionsPanel open={showOptions} onClose={() => setShowOptions(false)} />
+
         {/* Contenido principal */}
-        <div className={headerImage ? "px-4" : (showSearchHeader ? "px-4" : "")}>
+        <div className={headerImage || showSearchHeader ? "px-4" : "px-0"}>
           {children}
         </div>
       </div>
