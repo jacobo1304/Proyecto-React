@@ -3,11 +3,12 @@ import { useNavigate, useParams } from 'react-router-dom'
 import FooterNav from '../components/FooterNav'
 import ConfirmDialog from '../components/ConfirmDialog'
 import { useUIStore } from '../../store/uiStore'
+import { publicImages } from '../images.js'
 
 const BANK_SCENARIO = {
   id: 'correos',
   titulo: 'Actividad #1',
-  img: '/images/correos.jpg',
+  img: publicImages.correos,
   pregunta:
     'Te llegó un correo y andan preguntando datos sobre tu banco para la seguridad.',
   opciones: ['A', 'B', 'C', 'D'],
@@ -73,7 +74,7 @@ export default function Actividad() {
                     type: 'activity-success',
                     title: '¡Respuesta correcta!',
                     message: 'Has ganado +8 monedas',
-                    imageSrc: '/images/toast-success.png', // Nombre sugerido: sube esa imagen luego.
+                    imageSrc: publicImages.toastSuccess,
                   })
                   // Pequeño delay para que el usuario vea el toast antes del redirect
                   setTimeout(() => navigate('/correcto'), 400)

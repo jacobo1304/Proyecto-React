@@ -2,6 +2,7 @@ import FooterNav from '../components/FooterNav'
 import { useNavigate } from 'react-router-dom'
 import { useActivityStore } from '../../store/activityStore'
 import { useWalletStore } from '../../store/walletStore'
+import { publicImages } from '../images.js'
 
 export default function Correcto() {
   const score = 86
@@ -14,7 +15,7 @@ export default function Correcto() {
     <main className="relative min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Confetti como overlay */}
       <img
-        src="/images/Confetti.png"
+        src={publicImages.confetti}
         alt="Confetti"
         className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-90"
         onError={(e) => {
@@ -27,7 +28,7 @@ export default function Correcto() {
 
         {/* Tren */}
         <img
-          src="/images/Training Train Proyecto DCU. (3).png"
+          src={publicImages.trainingProject}
           alt="Training train"
           className="w-60 md:w-72 h-auto drop-shadow"
           onError={(e) => {

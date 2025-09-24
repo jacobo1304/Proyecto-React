@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
 import { useWalletStore } from '../store/walletStore'
+import { publicImages } from '../assets/images.js'
 
 export default function ContenidoInicio() {
   const navigate = useNavigate()
@@ -11,8 +12,8 @@ export default function ContenidoInicio() {
   console.log('🏠 [ContenidoInicio] Component rendered')
   
   const cursos = [
-    { id: 1, titulo: 'Riesgos del trabajo', img: '/images/Riesgos%20del%20trabajo.jpg' },
-    { id: 2, titulo: 'Seguridad de la Información', img: '/images/SeguridadInformacion.jpg' },
+    { id: 1, titulo: 'Riesgos del trabajo', img: publicImages.riesgosTrabajoEncoded },
+    { id: 2, titulo: 'Seguridad de la Información', img: publicImages.seguridadInformacionCaps },
   ]
 
   return (

@@ -1,11 +1,12 @@
 import { useMemo } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import FooterNav from '../components/FooterNav'
+import { publicImages } from '../images.js'
 
 const DATA = {
   correos: {
     titulo: 'Correos sospechosos',
-    img: '/images/correos.jpg',
+    img: publicImages.correos,
     desc:
       'Aprende a identificar correos fraudulentos, técnicas comunes de phishing y prácticas seguras para proteger tu información.',
     duracion: '15 min',
@@ -14,7 +15,7 @@ const DATA = {
   },
   contrasenas: {
     titulo: 'Uso de contraseñas',
-    img: '/images/Contrase%C3%B1as.png',
+    img: publicImages.contraseñasEncoded,
     desc:
       'Buenas prácticas para crear y gestionar contraseñas seguras. Recomendaciones sobre MFA y gestores de contraseñas.',
     duracion: '12 min',
@@ -35,7 +36,7 @@ export default function InfoActividad() {
         {/* Imagen principal */}
         <div className="relative">
           <img
-            src={info?.img || '/images/SeguridadInformacion.jpg'}
+            src={info?.img || publicImages.seguridadInformacionCaps}
             alt={info?.titulo || 'Actividad'}
             className="h-44 w-full object-cover md:h-56"
           />

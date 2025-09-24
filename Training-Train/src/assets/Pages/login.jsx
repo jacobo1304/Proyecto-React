@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import logo from "../Imgs/traininglogo.png" 
+import { trainingLogo } from '../images.js'
 import { useAuthStore } from '../../store/authStore'
 import { useUIStore } from '../../store/uiStore'
 
@@ -33,7 +33,7 @@ export default function Login() {
 
         {/* Imagen del tren */}
         <img
-          src={logo}
+          src={trainingLogo}
           alt="Logo"
           onError={(e) => {
             // Oculta la imagen si falla la carga; evita usar /vite.svg

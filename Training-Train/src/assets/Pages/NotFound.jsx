@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useCallback } from 'react'
+import { publicImages } from '../images.js'
 
 // Nota: La imagen 404 se espera en public/images. Ideal renombrar sin espacios: public/images/imagen404.png
 // Mientras tenga espacios, se puede referenciar escapando/encode. Aquí asumimos renombrada a imagen404.png para simplicidad.
@@ -57,7 +58,7 @@ export default function NotFound() {
 
 				<div className="mt-10 w-full max-w-sm">
 					<img
-						src="/images/imagen404.png"
+						src={publicImages.imagen404}
 						alt="Ilustración de exploración para página no encontrada"
 						className="w-full select-none object-contain drop-shadow-sm"
 						loading="lazy"

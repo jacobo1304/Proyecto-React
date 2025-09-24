@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { publicImages } from '../images.js'
 
 export default function LoadingScreen() {
   const [progress, setProgress] = useState(0)
@@ -25,7 +26,7 @@ export default function LoadingScreen() {
         <h1 className="text-sky-300 text-4xl md:text-5xl font-extrabold">¡Bienvenido!</h1>
 
         <img
-          src="/images/Training Train Proyecto DCU. (3).png"
+          src={publicImages.trainingProject}
           alt="Training train"
           className="w-72 md:w-80 h-auto select-none drop-shadow"
           draggable={false}

@@ -1,5 +1,6 @@
 import AppLayout from '../../components/AppLayout'
 import { useNavigate } from 'react-router-dom'
+import { publicImages } from '../images.js'
 
 export default function Actividades() {
   const navigate = useNavigate()
@@ -8,13 +9,13 @@ export default function Actividades() {
       id: 'correos',
       titulo: 'Correos sospechosos',
       expira: '21/04/25',
-      img: '/images/correos.jpg',
+      img: publicImages.correos,
     },
     {
       id: 'contrasenas',
       titulo: 'Uso de contraseñas',
       expira: '24/04/25',
-      img: '/images/Contrase%C3%B1as.png',
+      img: publicImages.contraseñasEncoded,
     },
   ]
 
@@ -28,7 +29,7 @@ export default function Actividades() {
         </>
       }
       headerImage={{
-        src: "/images/SeguridadInformacion.jpg",
+        src: publicImages.seguridadInformacionCaps,
         alt: "Seguridad de la Información"
       }}
       footerCurrent="home"

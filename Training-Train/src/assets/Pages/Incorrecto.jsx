@@ -1,4 +1,5 @@
 import FooterNav from '../components/FooterNav'
+import { publicImages } from '../images.js'
 
 export default function Incorrecto() {
   const score = 0
@@ -7,7 +8,7 @@ export default function Incorrecto() {
     <main className="relative min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Overlay (puedes cambiar por otra imagen si la tienes) */}
       <img
-        src="/images/Confetti.png"
+        src={publicImages.confetti}
         alt="Confetti"
         className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-50"
         onError={(e) => {
@@ -22,7 +23,7 @@ export default function Incorrecto() {
 
         {/* Tren */}
         <img
-          src="/images/Training Train Proyecto DCU. (3).png"
+          src={publicImages.trainingProject}
           alt="Training train"
           className="w-60 md:w-72 h-auto drop-shadow"
           onError={(e) => {
