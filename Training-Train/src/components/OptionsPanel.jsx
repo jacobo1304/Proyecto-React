@@ -59,7 +59,7 @@ export default function OptionsPanel({ open, onClose }) {
       
       {/* Panel */}
       <aside
-        className={`fixed left-0 top-0 z-30 h-screen w-[min(90%,380px)] overflow-y-auto border-r border-zinc-700/50 bg-gradient-to-b from-zinc-100 to-zinc-200 dark:from-zinc-800/95 dark:to-zinc-900/95 p-6 text-zinc-900 dark:text-zinc-100 shadow-2xl backdrop-blur-sm transition-all duration-500 ease-out will-change-transform dark:border-zinc-600/50
+        className={`fixed left-0 top-0 z-30 h-screen w-[min(90%,380px)] overflow-y-auto border-r border-zinc-700/50 bg-gradient-to-b from-zinc-100 to-zinc-200 dark:from-zinc-800/95 dark:to-zinc-900/95 p-6 text-zinc-900 dark:text-zinc-100 shadow-2xl backdrop-blur-sm transition-all duration-100 ease-out will-change-transform dark:border-zinc-600/50
           ${animating ? 'translate-x-0' : '-translate-x-full'}
         `}
         onTransitionEnd={handleAnimationEnd}
