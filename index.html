@@ -1,73 +1,92 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
-<script>
-  console.log('🚀 [DEBUG] Starting theme initialization...')
-  
-  // FORZAR RESET para testing - eliminar esta línea después
-  localStorage.removeItem('theme-store')
-  console.log('🚀 [DEBUG] FORCED localStorage clear')
-  
-  ;(function() {
-    try {
-      var stored = localStorage.getItem('theme-store');
-      console.log('🚀 [DEBUG] localStorage theme-store:', stored)
-      
-      var theme = 'light'; // default fallback a light
-      if (stored) {
-        try {
-          var parsed = JSON.parse(stored);
-          theme = parsed && parsed.state && parsed.state.theme ? parsed.state.theme : 'light';
-          console.log('🚀 [DEBUG] Parsed theme:', theme)
-        } catch (e) {
-          console.log('🚀 [DEBUG] Parse error:', e)
-        }
-      }
-      
-      console.log('🚀 [DEBUG] Final theme decision:', theme)
-      console.log('🚀 [DEBUG] HTML classes before:', document.documentElement.className)
-      
-      // Solo aplicar 'dark' si el tema es explícitamente 'dark'
-      // Si es 'light', remover la clase
-      // Si es 'system', usar prefers-color-scheme
-      if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
-        console.log('🚀 [DEBUG] Removed dark class')
-      } else if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-        console.log('🚀 [DEBUG] Added dark class')
-      } else if (theme === 'system') {
-        var mql = window.matchMedia('(prefers-color-scheme: dark)');
-        if (mql.matches) {
-          document.documentElement.classList.add('dark');
-          console.log('🚀 [DEBUG] System prefers dark, added dark class')
-        } else {
-          document.documentElement.classList.remove('dark');
-          console.log('🚀 [DEBUG] System prefers light, removed dark class')
-        }
-      } else {
-        // fallback: usar light como default
-        document.documentElement.classList.remove('dark');
-        console.log('🚀 [DEBUG] Fallback: removed dark class')
-      }
-      
-      console.log('🚀 [DEBUG] HTML classes after:', document.documentElement.className)
-    } catch (e) {
-      console.log('🚀 [DEBUG] Script error:', e)
-      // noop - en caso de error, usar light
-      document.documentElement.classList.remove('dark');
-    }
-  })();
-  </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
-  <link rel="icon" href="/Proyecto-React/images/Training Train Proyecto DCU. (3).png" />
+    <link rel="icon" href="/Proyecto-React/images/Training Train Proyecto DCU. (3).png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Training Train</title>
-    <script type="module" crossorigin src="/Proyecto-React/assets/index-BZeS769f.js"></script>
-    <link rel="stylesheet" crossorigin href="/Proyecto-React/assets/index-CO_V_-8D.css">
+    
+    <!-- GitHub Pages SPA fix -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+
+    <!-- Theme initialization script -->
+    <script>
+      console.log('🚀 [DEBUG] Starting theme initialization...')
+      
+      // FORZAR RESET para testing - eliminar esta línea después
+      localStorage.removeItem('theme-store')
+      console.log('🚀 [DEBUG] FORCED localStorage clear')
+      
+      ;(function() {
+        try {
+          var stored = localStorage.getItem('theme-store');
+          console.log('🚀 [DEBUG] localStorage theme-store:', stored)
+          
+          var theme = 'light'; // default fallback a light
+          if (stored) {
+            try {
+              var parsed = JSON.parse(stored);
+              theme = parsed && parsed.state && parsed.state.theme ? parsed.state.theme : 'light';
+              console.log('🚀 [DEBUG] Parsed theme:', theme)
+            } catch (e) {
+              console.log('🚀 [DEBUG] Parse error:', e)
+            }
+          }
+          
+          console.log('🚀 [DEBUG] Final theme decision:', theme)
+          console.log('🚀 [DEBUG] HTML classes before:', document.documentElement.className)
+          
+          // Solo aplicar 'dark' si el tema es explícitamente 'dark'
+          if (theme === 'light') {
+            document.documentElement.classList.remove('dark');
+            console.log('🚀 [DEBUG] Removed dark class')
+          } else if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            console.log('🚀 [DEBUG] Added dark class')
+          } else if (theme === 'system') {
+            var mql = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mql.matches) {
+              document.documentElement.classList.add('dark');
+              console.log('🚀 [DEBUG] System prefers dark, added dark class')
+            } else {
+              document.documentElement.classList.remove('dark');
+              console.log('🚀 [DEBUG] System prefers light, removed dark class')
+            }
+          } else {
+            // fallback: usar light como default
+            document.documentElement.classList.remove('dark');
+            console.log('🚀 [DEBUG] Fallback: removed dark class')
+          }
+          
+          console.log('🚀 [DEBUG] HTML classes after:', document.documentElement.className)
+        } catch (e) {
+          console.log('🚀 [DEBUG] Script error:', e)
+          // noop - en caso de error, usar light
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/Proyecto-React/assets/index-Bo7ST7Zy.js"></script>
+    <link rel="stylesheet" crossorigin href="/Proyecto-React/assets/index-CmYr26W6.css">
   </head>
   <body>
     <div id="root"></div>
