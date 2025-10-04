@@ -4,6 +4,11 @@ import { publicImages } from '../images.js'
 
 export default function Actividades() {
   const navigate = useNavigate()
+  
+  // Debug para verificar URLs de imágenes
+  console.log('📋 [Actividades] contraseñas URL:', publicImages.contraseñas)
+  console.log('📋 [Actividades] BASE_URL:', import.meta.env.BASE_URL)
+  
   const actividades = [
     {
       id: 'correos',
@@ -15,7 +20,7 @@ export default function Actividades() {
       id: 'contrasenas',
       titulo: 'Uso de contraseñas',
       expira: '24/04/25',
-      img: publicImages.contraseñasEncoded,
+      img: publicImages.contraseñas,
     },
   ]
 

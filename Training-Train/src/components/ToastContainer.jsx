@@ -1,8 +1,7 @@
 import { Toaster, toast } from 'react-hot-toast'
 import { useEffect } from 'react'
 import { useUIStore } from '../store/uiStore'
-import ErrorToast from '../assets/components/toast/ErrorToast'
-import SuccessToast from './SuccessToast'
+import CustomToast from './CustomToast'
 
 export default function ToastContainer() {
   const toasts = useUIStore((s) => s.toasts)
@@ -13,12 +12,12 @@ export default function ToastContainer() {
     // Mostrar y limpiar cola local (delegamos el render a react-hot-toast)
     toasts.forEach((t) => {
       if (t.type === 'error') {
-        toast.custom((tt) => (
-          <ErrorToast t={tt} message={t.message} onAction={t.onAction} />
-        ))
+        // Política actual: errores usan el toast nativo textual de react-hot-toast.
+        // (Se eliminó el ErrorToast personalizado con imagen para simplificar UX.)
+        toast.error(t.message || 'Ocurrió un error')
       } else if (t.type === 'activity-success') {
         toast.custom((tt) => (
-          <SuccessToast t={tt} title={t.title} message={t.message} imageSrc={t.imageSrc} />
+          <CustomToast t={tt} imageKey={t.imageKey || 'toastSuccess'} />
         ))
       } else if (t.type === 'success') {
         toast.success(t.message)

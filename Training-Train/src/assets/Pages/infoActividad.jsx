@@ -15,7 +15,7 @@ const DATA = {
   },
   contrasenas: {
     titulo: 'Uso de contraseñas',
-    img: publicImages.contraseñasEncoded,
+    img: publicImages.contraseñas,
     desc:
       'Buenas prácticas para crear y gestionar contraseñas seguras. Recomendaciones sobre MFA y gestores de contraseñas.',
     duracion: '12 min',

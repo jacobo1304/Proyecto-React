@@ -34,7 +34,7 @@ createRoot(document.getElementById('root')).render(
     <ThemeRoot>
       <ToastContainer />
 
-      <BrowserRouter>
+      <BrowserRouter basename="/Proyecto-React">
         <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />

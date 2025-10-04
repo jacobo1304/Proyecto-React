@@ -10,9 +10,11 @@ export default function ContenidoInicio() {
   
   // Debug para verificar que Tailwind esté funcionando
   console.log('🏠 [ContenidoInicio] Component rendered')
+  console.log('🖼️ [ContenidoInicio] riesgosTrabajo URL:', publicImages.riesgosTrabajo)
+  console.log('🖼️ [ContenidoInicio] BASE_URL:', import.meta.env.BASE_URL)
   
   const cursos = [
-    { id: 1, titulo: 'Riesgos del trabajo', img: publicImages.riesgosTrabajoEncoded },
+    { id: 1, titulo: 'Riesgos del trabajo', img: publicImages.riesgosTrabajo },
     { id: 2, titulo: 'Seguridad de la Información', img: publicImages.seguridadInformacionCaps },
   ]
 

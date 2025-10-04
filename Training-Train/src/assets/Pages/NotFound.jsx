@@ -66,7 +66,7 @@ export default function NotFound() {
 					/>
 				</div>
 
-				<div className="mt-10">
+				<div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
 					<button
 						type="button"
 						onClick={handleBack}
@@ -76,6 +76,19 @@ export default function NotFound() {
 							<path d="M15 18l-6-6 6-6" />
 						</svg>
 						Volver
+					</button>
+					
+					<button
+						type="button"
+						onClick={() => navigate('/login')}
+						className="inline-flex items-center gap-2 rounded-full bg-zinc-600 px-8 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-zinc-500/30 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 dark:bg-zinc-500 dark:hover:bg-zinc-400 dark:focus:ring-zinc-300"
+					>
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+							<path d="M9 12l2 2 4-4" />
+							<path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3" />
+							<path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3" />
+						</svg>
+						Iniciar sesión de nuevo
 					</button>
 				</div>
 			</div>

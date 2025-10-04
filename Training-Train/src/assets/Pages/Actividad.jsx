@@ -69,15 +69,13 @@ export default function Actividad() {
               onClick={() => {
                 setSeleccion(op)
                 if (idx === 0) {
-                  // Toast de éxito actividad
+                  // Toast de éxito actividad - solo imagen
                   showToast({
                     type: 'activity-success',
-                    title: '¡Respuesta correcta!',
-                    message: 'Has ganado +8 monedas',
-                    imageSrc: publicImages.toastSuccess,
+                    imageKey: 'toastSuccess',
                   })
                   // Pequeño delay para que el usuario vea el toast antes del redirect
-                  setTimeout(() => navigate('/correcto'), 400)
+                  setTimeout(() => navigate('/correcto'), 1000)
                 } else {
                   navigate('/incorrecto')
                 }

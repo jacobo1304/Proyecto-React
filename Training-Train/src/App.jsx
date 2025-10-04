@@ -1,12 +1,12 @@
 import './App.css'
-import Login from './assets/Pages/login.jsx'
-import Inicio from './assets/Pages/inicio.jsx'
-import Actividades from './assets/Pages/Actividades.jsx'
-import LoadingScreen from './assets/Pages/loadingScreen.jsx'
-import Correcto from './assets/Pages/Correcto.jsx'
-import Confirmacion from './assets/Pages/Confirmacion.jsx'
+import { Navigate } from 'react-router-dom'
+import { useAuthStore } from './store/authStore'
+
 function App() {
-  return <Login />
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
+  
+  // Redirigir al login si no está autenticado, o al inicio si ya está autenticado
+  return <Navigate to={isAuthenticated ? "/inicio" : "/login"} replace />
 }
 
 export default App
