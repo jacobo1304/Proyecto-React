@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useWalletStore } from '../../store/walletStore'
 import { useUIStore } from '../../store/uiStore'
-import FooterNav from '../../components/FooterNav'
+import AppLayout from '../../components/AppLayout'
 
 const REWARDS = [
   { id: 'g5', cost: 100, label: '5$ amazon giftcard.' },
@@ -26,7 +26,8 @@ export default function Tienda() {
   }
 
   return (
-    <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
+    <AppLayout footerCurrent="store">
+      <main className="min-h-dvh pb-8 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Header */}
   <header className="sticky top-0 z-20 flex items-center gap-4 border-b px-4 py-3 backdrop-blur border-zinc-200 bg-zinc-50/95 dark:border-zinc-700/60 dark:bg-zinc-900/95">
         <button
@@ -91,8 +92,8 @@ export default function Tienda() {
         </div>
       </section>
 
-      <FooterNav current="store" />
-    </main>
+      </main>
+    </AppLayout>
   )
 }
 

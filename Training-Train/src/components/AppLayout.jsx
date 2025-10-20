@@ -1,4 +1,5 @@
 import FooterNav from './FooterNav'
+import SidebarNav from './SidebarNav'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import OptionsPanel from './OptionsPanel'
@@ -18,10 +19,10 @@ export default function AppLayout({
     if (showSearchHeader) {
       return (
         <header className="flex items-center gap-3 px-4 pt-4">
-          {/* Menú hamburguesa */}
+          {/* Menú hamburguesa (oculto en md+ porque aparece la Sidebar) */}
           <button
             type="button"
-            className="p-2 text-zinc-700 hover:text-sky-600 dark:text-zinc-100"
+            className="p-2 text-zinc-700 hover:text-sky-600 dark:text-zinc-100 md:hidden"
             aria-label="Abrir opciones"
             onClick={() => setShowOptions(true)}
           >
@@ -29,19 +30,6 @@ export default function AppLayout({
               <path d="M3 6h18M3 12h18M3 18h18" />
             </svg>
           </button>
-
-          {/* Barra de búsqueda */}
-          <div className="relative flex-1">
-            <input
-              type="search"
-              placeholder="Search"
-              className="w-full rounded-full border pl-10 pr-10 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 border-zinc-300 bg-white/70 placeholder:text-zinc-500 dark:border-zinc-700/70 dark:bg-zinc-900/60 dark:placeholder:text-zinc-400"
-            />
-            <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" aria-hidden="true">🔍</span>
-            <button className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 dark:text-zinc-300" aria-label="Limpiar búsqueda">
-              ⓧ
-            </button>
-          </div>
         </header>
       )
     }
@@ -74,7 +62,10 @@ export default function AppLayout({
 
   return (
     <main className="relative min-h-dvh pb-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors overflow-hidden">
-      <div className="relative mx-auto max-w-screen-sm">
+      {/* Sidebar para md+ */}
+      <SidebarNav current={footerCurrent} />
+
+      <div className="relative mx-auto max-w-screen-sm md:max-w-none md:pl-20">
         {/* Hero imagen principal (opcional) */}
         {headerImage && (
           <div className="relative">
@@ -94,7 +85,7 @@ export default function AppLayout({
         <OptionsPanel open={showOptions} onClose={() => setShowOptions(false)} />
 
         {/* Contenido principal */}
-        <div className={headerImage || showSearchHeader ? "px-4" : "px-0"}>
+        <div className={(headerImage || showSearchHeader ? "px-4" : "px-0") + ' md:px-6'}>
           {children}
         </div>
       </div>

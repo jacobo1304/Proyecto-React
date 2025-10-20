@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import FooterNav from '../components/FooterNav'
+import AppLayout from '../../components/AppLayout'
 import { publicImages } from '../images.js'
 
 const DATA = {
@@ -31,8 +31,9 @@ export default function InfoActividad() {
   const info = useMemo(() => DATA[id] ?? null, [id])
 
   return (
-    <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
-      <div className="mx-auto max-w-screen-sm">
+    <AppLayout footerCurrent="home">
+      <main className="min-h-dvh pb-8 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
+        <div className="mx-auto max-w-screen-sm">
         {/* Imagen principal */}
         <div className="relative">
           <img
@@ -99,9 +100,8 @@ export default function InfoActividad() {
             </button>
           </div>
         </div>
-      </div>
-
-      <FooterNav current="home" />
-    </main>
+        </div>
+      </main>
+    </AppLayout>
   )
 }

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import FooterNav from '../components/FooterNav'
+import AppLayout from '../../components/AppLayout'
 import { useActivityStore } from '../../store/activityStore'
 
 export default function Resultado() {
@@ -10,7 +10,8 @@ export default function Resultado() {
 	const progress = Math.max(0, Math.min(100, score))
 
 		return (
-			<main className="relative min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
+			<AppLayout footerCurrent="home">
+				<main className="relative min-h-dvh pb-8 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
 			{/* Confetti */}
 			<img
 				src="/images/Confetti.png"
@@ -73,7 +74,7 @@ export default function Resultado() {
 				</div>
 			</div>
 
-			<FooterNav current="home" />
-		</main>
+			</main>
+			</AppLayout>
 	)
 }

@@ -1,4 +1,4 @@
-import FooterNav from '../components/FooterNav'
+import AppLayout from '../../components/AppLayout'
 import { useNavigate } from 'react-router-dom'
 import { useActivityStore } from '../../store/activityStore'
 import { useWalletStore } from '../../store/walletStore'
@@ -12,7 +12,8 @@ export default function Correcto() {
   const addCoins = useWalletStore((s) => s.addCoins)
 
   return (
-    <main className="relative min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
+    <AppLayout footerCurrent="home">
+      <main className="relative min-h-dvh pb-8 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Confetti como overlay */}
       <img
         src={publicImages.confetti}
@@ -67,8 +68,7 @@ export default function Correcto() {
           </button>
         </div>
       </div>
-
-      <FooterNav current="home" />
-    </main>
+      </main>
+    </AppLayout>
   )
 }

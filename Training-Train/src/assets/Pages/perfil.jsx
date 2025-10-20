@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import FooterNav from '../../components/FooterNav'
+import AppLayout from '../../components/AppLayout'
 
 export default function Perfil() {
   const navigate = useNavigate()
@@ -15,23 +15,24 @@ export default function Perfil() {
   }
 
   return (
-    <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
-      {/* Header */}
-      <header className="sticky top-0 z-20 flex items-center gap-4 border-b px-4 py-3 backdrop-blur border-zinc-200 bg-zinc-50/95 dark:border-zinc-700/60 dark:bg-zinc-900/95">
-        <button
-          onClick={() => (window.history.length > 1 ? navigate(-1) : navigate('/inicio'))}
-          aria-label="Volver"
-          className="group rounded-md p-1 text-2xl leading-none text-zinc-900 transition hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:text-zinc-200 dark:hover:bg-zinc-700/40"
-        >
-          <span className="block translate-x-0 transition group-active:-translate-x-1">❮</span>
-        </button>
-        <h1 className="flex-1 text-center text-3xl font-extrabold tracking-tight">
-          <span className="text-sky-700 dark:text-sky-300">Mi Perfil:</span>
-        </h1>
-        <div className="w-8" /> {/* Espaciador para balancear */}
-      </header>
+    <AppLayout footerCurrent="perfil">
+      <main className="min-h-dvh pb-8 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
+        {/* Header */}
+        <header className="sticky top-0 z-20 flex items-center gap-4 border-b px-4 py-3 backdrop-blur border-zinc-200 bg-zinc-50/95 dark:border-zinc-700/60 dark:bg-zinc-900/95">
+          <button
+            onClick={() => (window.history.length > 1 ? navigate(-1) : navigate('/inicio'))}
+            aria-label="Volver"
+            className="group rounded-md p-1 text-2xl leading-none text-zinc-900 transition hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:text-zinc-200 dark:hover:bg-zinc-700/40"
+          >
+            <span className="block translate-x-0 transition group-active:-translate-x-1">❮</span>
+          </button>
+          <h1 className="flex-1 text-center text-3xl font-extrabold tracking-tight">
+            <span className="text-sky-700 dark:text-sky-300">Mi Perfil:</span>
+          </h1>
+          <div className="w-8" /> {/* Espaciador para balancear */}
+        </header>
 
-      <section className="mx-auto w-full max-w-screen-sm px-6 pt-6">
+        <section className="mx-auto w-full max-w-screen-sm px-6 pt-6">
         {/* Avatar */}
         <div className="mx-auto mb-8 flex h-40 w-40 items-center justify-center rounded-full bg-zinc-300 text-5xl text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200">
           <span role="img" aria-label="avatar">👤</span>
@@ -83,9 +84,8 @@ export default function Perfil() {
             Mi tienda
           </button>
         </div>
-      </section>
-
-      <FooterNav current="perfil" />
-    </main>
+        </section>
+      </main>
+    </AppLayout>
   )
 }

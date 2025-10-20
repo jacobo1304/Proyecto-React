@@ -25,7 +25,7 @@ export default function Actividades() {
   ]
 
   return (
-    <AppLayout 
+    <AppLayout
       showBackHeader={true}
       backTitle={
         <>
@@ -35,7 +35,7 @@ export default function Actividades() {
       }
       headerImage={{
         src: publicImages.seguridadInformacionCaps,
-        alt: "Seguridad de la Información"
+        alt: 'Seguridad de la Información',
       }}
       footerCurrent="home"
     >

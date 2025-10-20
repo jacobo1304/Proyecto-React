@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import ConfirmDialog from '../components/ConfirmDialog'
-import FooterNav from '../components/FooterNav'
+import AppLayout from '../../components/AppLayout'
 
 export default function Confirmacion() {
   const [open, setOpen] = useState(false)
 
   return (
-    <main className="min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
+    <AppLayout footerCurrent="home">
+      <main className="min-h-dvh pb-8 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Contenido de ejemplo detrás del modal */}
       <div className="mx-auto max-w-screen-sm px-4 pt-6">
         <button
@@ -27,8 +28,7 @@ export default function Confirmacion() {
         </div>
       </div>
 
-      <FooterNav current="home" />
-
+      
       <ConfirmDialog
         open={open}
         onConfirm={() => {
@@ -37,6 +37,7 @@ export default function Confirmacion() {
         }}
         onCancel={() => setOpen(false)}
       />
-    </main>
+      </main>
+    </AppLayout>
   )
 }

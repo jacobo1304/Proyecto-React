@@ -9,7 +9,7 @@ export default function FooterNav({ current, onNavigate }) {
 	const btnCls = 'inline-flex items-center justify-center rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-500'
 
 	return (
-		<nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:border-zinc-700/60 dark:bg-zinc-900/95 dark:supports-[backdrop-filter]:bg-zinc-900/80">
+		<nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:border-zinc-700/60 dark:bg-zinc-900/95 dark:supports-[backdrop-filter]:bg-zinc-900/80 md:hidden">
 			<div className="mx-auto grid max-w-screen-sm grid-cols-3 gap-2 px-6 py-3">
 				{/* Home */}
 				<NavLink

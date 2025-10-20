@@ -1,11 +1,12 @@
-import FooterNav from '../components/FooterNav'
+import AppLayout from '../../components/AppLayout'
 import { publicImages } from '../images.js'
 
 export default function Incorrecto() {
   const score = 0
 
   return (
-    <main className="relative min-h-dvh pb-28 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
+    <AppLayout footerCurrent="home">
+      <main className="relative min-h-dvh pb-8 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
       {/* Overlay (puedes cambiar por otra imagen si la tienes) */}
       <img
         src={publicImages.confetti}
@@ -59,7 +60,7 @@ export default function Incorrecto() {
         </div>
       </div>
 
-      <FooterNav current="home" />
-    </main>
+      </main>
+    </AppLayout>
   )
 }
