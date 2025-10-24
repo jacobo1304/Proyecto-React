@@ -1,17 +1,27 @@
 import { NavLink } from 'react-router-dom'
 
-export default function SidebarNav({ current, onNavigate }) {
+export default function SidebarNav({ current, onNavigate, onOpenOptions }) {
   const itemCls = (active) =>
-    `flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-zinc-300 hover:bg-zinc-800/70 hover:text-white ${
-      active ? 'text-sky-300 bg-zinc-800/80' : ''
-    }`
+    `flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium 
+     text-zinc-600 dark:text-zinc-300 
+     hover:bg-zinc-100 dark:hover:bg-zinc-800/70 
+     hover:text-zinc-900 dark:hover:text-white 
+     ${active ? 'text-sky-600 bg-zinc-100 dark:text-sky-300 dark:bg-zinc-800/80' : ''}`
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-50 hidden w-16 flex-col items-center justify-between border-r border-zinc-700/60 bg-zinc-900/95 px-2 py-4 md:flex">
+    <aside className="fixed inset-y-0 left-0 z-50 hidden w-16 flex-col items-center justify-between border-r 
+      border-zinc-200 dark:border-zinc-700/60 
+      bg-white/90 dark:bg-zinc-900/95 
+      backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-zinc-900/80 
+      px-2 py-4 md:flex">
       {/* Top icons */}
       <div className="flex flex-col items-center gap-6">
-        {/* Burger placeholder (could open OptionsPanel) */}
-        <button aria-label="Menú" className="rounded-lg p-2 text-zinc-300 hover:bg-zinc-800/70">
+        {/* Botón hamburguesa: abre el panel de opciones (misma acción que en móvil) */}
+        <button
+          aria-label="Menú"
+          className="rounded-lg p-2 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800/70 dark:hover:text-white"
+          onClick={() => onOpenOptions?.()}
+        >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M3 6h18M3 12h18M3 18h18" />
           </svg>

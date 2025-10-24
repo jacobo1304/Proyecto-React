@@ -63,7 +63,7 @@ export default function AppLayout({
   return (
     <main className="relative min-h-dvh pb-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors overflow-hidden">
       {/* Sidebar para md+ */}
-      <SidebarNav current={footerCurrent} />
+  <SidebarNav current={footerCurrent} onOpenOptions={() => setShowOptions(true)} />
 
       <div className="relative mx-auto max-w-screen-sm md:max-w-none md:pl-20">
         {/* Hero imagen principal (opcional) */}

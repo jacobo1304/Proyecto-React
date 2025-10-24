@@ -16,6 +16,7 @@ import Progreso from './assets/Pages/progreso.jsx'
 import Tienda from './assets/Pages/tienda.jsx'
 import InfoActividad from './assets/Pages/infoActividad.jsx'
 import Actividad from './assets/Pages/Actividad.jsx'
+import Pregunta from './assets/Pages/Pregunta.jsx'
 import Resultado from './assets/Pages/Resultado.jsx'
 import ToastContainer from './components/ToastContainer.jsx'
 import ThemeRoot from './components/ThemeRoot.jsx'
@@ -39,9 +40,12 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
     <Route path="/inicio" element={<ProtectedRoute><Inicio /></ProtectedRoute>} />
-    <Route path="/actividades" element={<ProtectedRoute><Actividades /></ProtectedRoute>} />
-    <Route path="/actividad" element={<ProtectedRoute><Actividad /></ProtectedRoute>} />
-    <Route path="/actividad/:id" element={<ProtectedRoute><Actividad /></ProtectedRoute>} />
+  <Route path="/actividades" element={<ProtectedRoute><Actividades /></ProtectedRoute>} />
+  {/* Nueva ruta genérica de preguntas por actividad */}
+  <Route path="/actividades/:id/p/:qIndex" element={<ProtectedRoute><Pregunta /></ProtectedRoute>} />
+  {/* Compatibilidad: redirigir rutas antiguas a la nueva entrada */}
+  <Route path="/actividad/:id" element={<Navigate to="../actividades/:id/p/0" replace />} />
+  <Route path="/actividad" element={<Navigate to="/actividades" replace />} />
     <Route path="/info-actividad" element={<ProtectedRoute><InfoActividad /></ProtectedRoute>} />
     <Route path="/info-actividad/:id" element={<ProtectedRoute><InfoActividad /></ProtectedRoute>} />
     <Route path="/perfil" element={<ProtectedRoute><Perfil /></ProtectedRoute>} />

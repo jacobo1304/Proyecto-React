@@ -56,7 +56,7 @@ export default function Actividades() {
               <div className="grid grid-cols-[1fr_auto] items-stretch gap-3">
                 <button
                   type="button"
-                  onClick={() => navigate(`/actividad/${a.id}`)}
+                  onClick={() => navigate(`/actividades/${a.id}/p/0`)}
                   className="overflow-hidden rounded-md border focus:outline-none focus:ring-2 focus:ring-sky-500 border-zinc-300 bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-800"
                 >
                   <img src={a.img} alt={a.titulo} className="h-36 w-full object-cover" loading="lazy" />
@@ -66,7 +66,7 @@ export default function Actividades() {
                     type="button"
                     aria-label={`Iniciar ${a.titulo}`}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full text-zinc-900 shadow focus:outline-none focus:ring-2 focus:ring-sky-500 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
-                    onClick={() => navigate(`/actividad/${a.id}`)}
+                    onClick={() => navigate(`/actividades/${a.id}/p/0`)}
                   >
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M8 5v14l11-7z" />
