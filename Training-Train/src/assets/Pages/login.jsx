@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { trainingLogo } from '../images.js'
+import { Link, useNavigate } from 'react-router-dom'
+import LandingHeader from '../../components/LandingHeader'
+import { trainingLogo, publicImages } from '../images.js'
 import { useAuthStore } from '../../store/authStore'
 import { useUIStore } from '../../store/uiStore'
 
@@ -24,100 +25,94 @@ export default function Login() {
     companies.find((c) => c.value === requiredCompanyValue)?.label || requiredCompanyValue
 
   return (
-    <main className="min-h-screen transition-colors bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
-      <div className="mx-auto flex min-h-screen max-w-screen-sm flex-col items-center justify-center gap-10 p-6 text-center">
-        {/* Título */}
-       <h1 className="quicksand-main text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-sm text-sky-600 dark:text-sky-300">
-        Training train
-        </h1>
+    <div className="min-h-screen bg-[#0F172A] text-white">
+      <LandingHeader useRoutes />
+      <main className="pt-14">
+        <div className="mx-auto flex min-h-[calc(100vh-3.5rem)] max-w-xl flex-col items-center justify-center gap-6 px-6 text-center">
+          {/* Tren */}
+          <img
+            src={publicImages.trainingProject || trainingLogo}
+            alt="Train"
+            className="w-64 md:w-80 h-auto select-none"
+            draggable={false}
+          />
 
-        {/* Imagen del tren */}
-        <img
-          src={trainingLogo}
-          alt="Logo"
-          onError={(e) => {
-            // Oculta la imagen si falla la carga; evita usar /vite.svg
-            e.currentTarget.style.display = 'none'
-          }}
-          className="w-64 md:w-80 h-auto select-none"
-          draggable={false}
-        />
+          {/* Títulos */}
+          <h2 className="text-3xl font-semibold text-sky-300">¡Bienvenido a bordo!</h2>
+          <p className="text-base text-white/90">Ingresa tus datos y empieza a aprender</p>
 
-        {/* Subtítulo tipo enlace subrayado */}
-        <h2 className="text-3xl font-semibold decoration-2 text-sky-600 dark:text-sky-300">
-          ¡Bienvenido a bordo!
-        </h2>
+          {/* Nombre de usuario */}
+          <div className="w-full max-w-lg">
+            <label htmlFor="name" className="sr-only">Tu nombre</label>
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Ingresa tu nombre"
+              className="w-full rounded-xl px-5 py-3 text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 border border-white/10 bg-white/10 text-white placeholder:text-white/60"
+            />
+          </div>
 
-        {/* Selector de empresa */}
-        <div className="w-full max-w-lg">
-          <label htmlFor="company" className="sr-only">
-            Selecciona tu empresa
-          </label>
-          <div className="relative">
-            <select
-              id="company"
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
-              className="w-full appearance-none rounded-xl px-5 py-4 text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500 border border-zinc-300 bg-white/80 text-zinc-900 placeholder:text-zinc-500 dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:text-zinc-100 dark:placeholder:text-zinc-400"
-              aria-label="Selecciona tu empresa"
-            >
-              <option value="" disabled>
-                Selecciona tu empresa
-              </option>
-              {companies.map((c) => (
-                <option key={c.value} value={c.value}>
-                  {c.label}
-                </option>
-              ))}
-            </select>
-            {/* Caret */}
-            <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-300">▾</span>
+          {/* Selector de empresa */}
+          <div className="w-full max-w-lg">
+            <label htmlFor="company" className="sr-only">Selecciona tu empresa</label>
+            <div className="relative">
+              <select
+                id="company"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                className="w-full appearance-none rounded-xl px-5 py-3 text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 border border-white/10 bg-white/10 text-white"
+                aria-label="Selecciona tu empresa"
+              >
+                <option value="" disabled>Selecciona tu empresa</option>
+                {companies.map((c) => (
+                  <option key={c.value} value={c.value} className="text-black">{c.label}</option>
+                ))}
+              </select>
+              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-white/60">▾</span>
+            </div>
+          </div>
+
+          {/* Botón principal */}
+          <button
+            type="button"
+            disabled={!company || !name}
+            className="mt-1 w-full max-w-lg rounded-xl bg-indigo-400 px-8 py-3 text-xl font-semibold text-zinc-900 shadow ring-1 ring-indigo-300 transition-colors hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
+            onClick={() => {
+              if (company !== requiredCompanyValue) {
+                showToast({
+                  type: 'error',
+                  message: `Solo puedes acceder con ${requiredCompanyLabel}`,
+                })
+                return
+              }
+              selectCompany(company)
+              setUserName(name)
+              login()
+              navigate('/loading')
+            }}
+          >
+            Ingresar
+          </button>
+
+          {/* Enlaces secundarios */}
+          <div className="mt-2 flex gap-10 text-white/90 underline underline-offset-4">
+            <Link to="/soporte" className="hover:text-white">Soporte</Link>
+            <Link to="/contacto" className="hover:text-white">Soy entrenador</Link>
           </div>
         </div>
 
-        {/* Nombre de usuario */}
-        <div className="w-full max-w-lg">
-          <label htmlFor="name" className="sr-only">Tu nombre</label>
-          <input
-            id="name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Tu nombre"
-            className="mt-2 w-full rounded-xl px-5 py-4 text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500 border border-zinc-300 bg-white/80 text-zinc-900 placeholder:text-zinc-500 dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:text-zinc-100 dark:placeholder:text-zinc-400"
-          />
-        </div>
-
-        {/* Botón principal */}
-        <button
-          type="button"
-          disabled={!company || !name}
-          className="mt-2 rounded-2xl bg-sky-600 px-8 py-4 text-2xl font-medium text-white shadow-md shadow-sky-900/40 transition-colors hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400 disabled:cursor-not-allowed disabled:opacity-50"
-          onClick={() => {
-            if (company !== requiredCompanyValue) {
-              showToast({
-                type: 'error',
-                message: `Solo puedes acceder con ${requiredCompanyLabel}`,
-                onAction: () => {
-                  // acción simple de reintento: limpiar selección y enfocar el select
-                  //setCompany('')
-                //  const select = document.getElementById('company')
-                //  if (select) select.focus()
-                },
-              })
-              return
-            }
-            // Persistimos en store
-            selectCompany(company)
-            setUserName(name)
-            login()
-            navigate('/loading')
-          }}
-        >
-          Comencemos
-        </button>
-      </div>
-    </main>
+        {/* Footer barra azul */}
+        <footer className="mt-8 bg-[#163477] px-6 py-6 text-xs text-white/90">
+          <div className="mx-auto max-w-6xl">
+            <p>Contacto:</p>
+            <p>Universidad pontificia bolivariana --- Jacobo.rodriguez@upb.edu.co</p>
+            <p>3002707141</p>
+          </div>
+        </footer>
+      </main>
+    </div>
   )
 }
 

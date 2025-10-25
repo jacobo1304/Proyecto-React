@@ -3,6 +3,7 @@ import SidebarNav from './SidebarNav'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import OptionsPanel from './OptionsPanel'
+import DesktopHeader from './DesktopHeader'
 
 export default function AppLayout({ 
   children, 
@@ -62,10 +63,13 @@ export default function AppLayout({
 
   return (
     <main className="relative min-h-dvh pb-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors overflow-hidden">
-      {/* Sidebar para md+ */}
-  <SidebarNav current={footerCurrent} onOpenOptions={() => setShowOptions(true)} />
+      {/* Header de escritorio (lg+) */}
+      <DesktopHeader onOpenOptions={() => setShowOptions(true)} />
 
-      <div className="relative mx-auto max-w-screen-sm md:max-w-none md:pl-20">
+      {/* Sidebar para md (oculta en lg) */}
+      <SidebarNav current={footerCurrent} onOpenOptions={() => setShowOptions(true)} />
+
+      <div className="relative mx-auto max-w-screen-sm md:max-w-none md:pl-20 lg:pl-0 lg:pt-16">
         {/* Hero imagen principal (opcional) */}
         {headerImage && (
           <div className="relative">
@@ -78,18 +82,19 @@ export default function AppLayout({
           </div>
         )}
 
-        {/* Header dinámico */}
+        {/* Header dinámico (back o buscador) */}
         {renderHeader()}
 
         {/* Panel de opciones animado */}
         <OptionsPanel open={showOptions} onClose={() => setShowOptions(false)} />
 
         {/* Contenido principal */}
-        <div className={(headerImage || showSearchHeader ? "px-4" : "px-0") + ' md:px-6'}>
+        <div className={(headerImage || showSearchHeader ? 'px-4' : 'px-0') + ' md:px-6'}>
           {children}
         </div>
       </div>
 
+      {/* Footer solo en móvil */}
       <FooterNav current={footerCurrent} />
     </main>
   )

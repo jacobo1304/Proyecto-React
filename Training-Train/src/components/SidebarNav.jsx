@@ -13,7 +13,7 @@ export default function SidebarNav({ current, onNavigate, onOpenOptions }) {
       border-zinc-200 dark:border-zinc-700/60 
       bg-white/90 dark:bg-zinc-900/95 
       backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-zinc-900/80 
-      px-2 py-4 md:flex">
+      px-2 py-4 md:flex lg:hidden">
       {/* Top icons */}
       <div className="flex flex-col items-center gap-6">
         {/* Botón hamburguesa: abre el panel de opciones (misma acción que en móvil) */}

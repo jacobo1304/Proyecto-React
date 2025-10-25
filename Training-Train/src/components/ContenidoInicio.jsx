@@ -14,8 +14,8 @@ export default function ContenidoInicio() {
   console.log('🖼️ [ContenidoInicio] BASE_URL:', import.meta.env.BASE_URL)
   
   const cursos = [
-    { id: 1, titulo: 'Riesgos del trabajo', img: publicImages.riesgosTrabajo },
-    { id: 2, titulo: 'Seguridad de la Información', img: publicImages.seguridadInformacionCaps },
+    { id: 1, titulo: 'Riesgos del trabajo', img: publicImages.riesgosTrabajo, route: '/actividades/riesgos-delt-trabajo' },
+    { id: 2, titulo: 'Seguridad de la Información', img: publicImages.seguridadInformacionCaps, route: '/actividades/seguridad-informacion' },
   ]
 
   return (
@@ -39,7 +39,7 @@ export default function ContenidoInicio() {
               <h3 className="mb-3 text-center text-xl font-semibold text-zinc-200">{c.titulo}</h3>
               <button
                 type="button"
-                onClick={() => navigate('/actividades')}
+                onClick={() => navigate(c.route)}
                 className="h-36 w-full overflow-hidden rounded-md border focus:outline-none focus:ring-2 focus:ring-sky-500 border-zinc-300 bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-800"
               >
                 <img src={c.img} alt={c.titulo} className="h-full w-full object-cover" loading="lazy" />
