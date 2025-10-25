@@ -55,6 +55,8 @@ export const publicImages = {
   microsoft: `${basePath}images/microsoft.jpg`,
   universidad: `${basePath}images/Universidad.jpg`,
   rutadeTren: `${basePath}images/rutadeTren.jpg`,
+  mitadTrasera: `${basePath}images/mitadTrasera.png`,
+  mitadEnfrente: `${basePath}images/mitadEnfrente.png`,
 }
 
 // Exportación de imágenes importadas

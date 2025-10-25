@@ -7,20 +7,52 @@ export default function NuestroTrabajo() {
     <div className="min-h-screen bg-[#111827] text-white">
       <LandingHeader useRoutes />
       <main className="pt-14">
-        {/* Hero superior */}
-        <section className="mx-auto max-w-5xl px-4 py-8 text-center">
-          <div className="flex items-center justify-between">
-            <img src={publicImages.trainingProject} alt="train" className="h-14 w-auto" />
-            <div>
-              <h1 className="text-3xl font-bold">Training<br/>train</h1>
-              <p className="mt-1 text-xs italic text-white/80">#Be prepared - Feel prepared</p>
+        {/* Hero superior: logos y texto sincronizados por --logoH */}
+        <section
+          className="mx-auto max-w-6xl px-4 py-8"
+          style={{ '--logoH': 'clamp(80px, 10vw + 24px, 180px)' }}
+        >
+          <div className="grid items-center gap-4 text-center sm:grid-cols-3">
+            {/* Logo izquierdo */}
+            <div className="flex items-center justify-center">
+              <img
+                src={publicImages.mitadTrasera}
+                alt="Mitad trasera del tren"
+                className="h-[var(--logoH)] w-auto object-contain"
+              />
             </div>
-            <img src={publicImages.trainingProject} alt="train" className="h-14 w-auto" />
+
+            {/* Bloque de texto sobre fondo amarillo */}
+            <div className="flex min-h-[var(--logoH)] items-center justify-center rounded-md bg-amber-400 px-4 py-2 text-zinc-900">
+              <div>
+                <h1 className="font-bold leading-tight [font-size:clamp(1.25rem,calc(var(--logoH)/2.6),2.25rem)]">
+                  Training
+                  <br />
+                  train
+                </h1>
+                <p className="mt-1 italic text-zinc-800 [font-size:clamp(0.8rem,calc(var(--logoH)/9),1rem)]">
+                  #Be prepared - Feel prepared
+                </p>
+              </div>
+            </div>
+
+            {/* Logo derecho */}
+            <div className="flex items-center justify-center">
+              <img
+                src={publicImages.mitadEnfrente}
+                alt="Mitad delantera del tren"
+                className="h-[var(--logoH)] w-auto object-contain"
+              />
+            </div>
           </div>
 
           <h2 className="mt-6 text-lg font-semibold text-amber-300">Conoce nuestra ruta</h2>
           <div className="mt-3 flex justify-center">
-            <img src={publicImages.landing1} alt="Conoce nuestra ruta" className="h-44 w-auto rounded-md object-cover" />
+            <img
+              src={publicImages.rutadeTren}
+              alt="Conoce nuestra ruta"
+              className="h-44 w-auto max-w-full rounded-md object-cover"
+            />
           </div>
 
           <p className="mx-auto mt-6 max-w-xl text-sm text-white/80">
