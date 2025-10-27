@@ -23,60 +23,28 @@
       }(window.location))
     </script>
 
-    <!-- Theme initialization script -->
+    <!-- Theme initialization script (sin parpadeos) -->
     <script>
-      console.log('🚀 [DEBUG] Starting theme initialization...')
-      
-      // FORZAR RESET para testing - eliminar esta línea después
-      localStorage.removeItem('theme-store')
-      console.log('🚀 [DEBUG] FORCED localStorage clear')
-      
       ;(function() {
         try {
           var stored = localStorage.getItem('theme-store');
-          console.log('🚀 [DEBUG] localStorage theme-store:', stored)
-          
-          var theme = 'light'; // default fallback a light
+          var mode = 'system';
           if (stored) {
             try {
               var parsed = JSON.parse(stored);
-              theme = parsed && parsed.state && parsed.state.theme ? parsed.state.theme : 'light';
-              console.log('🚀 [DEBUG] Parsed theme:', theme)
-            } catch (e) {
-              console.log('🚀 [DEBUG] Parse error:', e)
-            }
+              // Zustand persist guarda { state: { mode: 'dark'|'light'|'system' }, version: n }
+              if (parsed && parsed.state && typeof parsed.state.mode === 'string') {
+                mode = parsed.state.mode;
+              }
+            } catch {}
           }
-          
-          console.log('🚀 [DEBUG] Final theme decision:', theme)
-          console.log('🚀 [DEBUG] HTML classes before:', document.documentElement.className)
-          
-          // Solo aplicar 'dark' si el tema es explícitamente 'dark'
-          if (theme === 'light') {
-            document.documentElement.classList.remove('dark');
-            console.log('🚀 [DEBUG] Removed dark class')
-          } else if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-            console.log('🚀 [DEBUG] Added dark class')
-          } else if (theme === 'system') {
-            var mql = window.matchMedia('(prefers-color-scheme: dark)');
-            if (mql.matches) {
-              document.documentElement.classList.add('dark');
-              console.log('🚀 [DEBUG] System prefers dark, added dark class')
-            } else {
-              document.documentElement.classList.remove('dark');
-              console.log('🚀 [DEBUG] System prefers light, removed dark class')
-            }
-          } else {
-            // fallback: usar light como default
-            document.documentElement.classList.remove('dark');
-            console.log('🚀 [DEBUG] Fallback: removed dark class')
-          }
-          
-          console.log('🚀 [DEBUG] HTML classes after:', document.documentElement.className)
-        } catch (e) {
-          console.log('🚀 [DEBUG] Script error:', e)
-          // noop - en caso de error, usar light
-          document.documentElement.classList.remove('dark');
+
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = mode === 'dark' || (mode === 'system' && prefersDark);
+          if (isDark) document.documentElement.classList.add('dark');
+          else document.documentElement.classList.remove('dark');
+        } catch {
+          // En caso de error, no hacemos nada: Tailwind quedará en modo claro por defecto
         }
       })();
     </script>
@@ -85,8 +53,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/Proyecto-React/assets/index-BhJTrWaD.js"></script>
-    <link rel="stylesheet" crossorigin href="/Proyecto-React/assets/index-eead7sMF.css">
+    <script type="module" crossorigin src="/Proyecto-React/assets/index-Cgn4zHO-.js"></script>
+    <link rel="stylesheet" crossorigin href="/Proyecto-React/assets/index-KtkXp57F.css">
   </head>
   <body>
     <div id="root"></div>
