@@ -30,7 +30,7 @@ export default function riesgosDeltTrabajo() {
         </>
       }
       headerImage={{
-        src: publicImages.riesgosTrabajoEncoded || publicImages.riesgosTrabajo,
+        src: publicImages.riesgosTrabajo,
         alt: 'Riesgos del Trabajo',
       }}
       footerCurrent="home"

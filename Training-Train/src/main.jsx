@@ -40,7 +40,7 @@ createRoot(document.getElementById('root')).render(
     <ThemeRoot>
       <ToastContainer />
 
-  <BrowserRouter basename="/Training-Train">
+  <BrowserRouter basename="/Training-Train/LandingPage">
         <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
