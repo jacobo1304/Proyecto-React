@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Contacto() {
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white">
+    <div className="min-h-screen bg-[#0F172A] text-white flex flex-col">
       <LandingHeader useRoutes />
       <main className="pt-14">
         {/* Banda superior */}
@@ -29,19 +29,16 @@ export default function Contacto() {
             </a>
           </div>
         </section>
-
-        {/* Footer barra azul */}
-        <footer className="mt-8 bg-[#163477] px-6 py-6 text-xs text-white/90">
-          <div className="mx-auto max-w-6xl">
-            <p>Contacto:</p>
-            <p>Universidad pontificia bolivariana --- Jacobo.rodriguez@upb.edu.co</p>
-            <p>3002707141</p>
-            <div className="mt-2 text-right">
-              <Link to="/" className="underline underline-offset-4">Volver</Link>
-            </div>
-          </div>
-        </footer>
       </main>
+
+      {/* Footer barra azul fijo al fondo cuando hay poco contenido (igual a Soporte) */}
+      <footer className="mt-auto bg-[#163477] px-6 py-6 text-xs text-white/90">
+        <div className="mx-auto max-w-6xl">
+          <p>Contacto:</p>
+          <p>Universidad pontificia bolivariana --- Jacobo.rodriguez@upb.edu.co</p>
+          <p>3002707141</p>
+        </div>
+      </footer>
     </div>
   )
 }

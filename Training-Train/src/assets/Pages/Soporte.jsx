@@ -3,7 +3,7 @@ import { publicImages } from '../../assets/images'
 
 export default function Soporte() {
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white">
+    <div className="min-h-screen bg-[#0F172A] text-white flex flex-col">
       <LandingHeader useRoutes />
       <main className="pt-14">
         {/* Banda amarilla superior */}
@@ -30,16 +30,16 @@ export default function Soporte() {
             </a>
           </div>
         </section>
-
-        {/* Footer barra azul */}
-        <footer className="mt-8 bg-[#163477] px-6 py-6 text-xs text-white/90">
-          <div className="mx-auto max-w-6xl">
-            <p>Contacto:</p>
-            <p>Universidad pontificia bolivariana --- Jacobo.rodriguez@upb.edu.co</p>
-            <p>3002707141</p>
-          </div>
-        </footer>
       </main>
+
+      {/* Footer barra azul fijo al fondo cuando hay poco contenido */}
+      <footer className="mt-auto bg-[#163477] px-6 py-6 text-xs text-white/90">
+        <div className="mx-auto max-w-6xl">
+          <p>Contacto:</p>
+          <p>Universidad pontificia bolivariana --- Jacobo.rodriguez@upb.edu.co</p>
+          <p>3002707141</p>
+        </div>
+      </footer>
     </div>
   )
 }
